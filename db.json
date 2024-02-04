@@ -1,0 +1,15 @@
+{
+  "students": [
+    {
+      "name": "André",
+      "age": 31
+    },
+    {
+      "name": "André",
+      "age": 31
+    }
+  ],
+  "teachers": [],
+  "classes": [],
+  "parents": []
+}
