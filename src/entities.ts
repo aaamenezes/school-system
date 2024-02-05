@@ -18,7 +18,7 @@ interface Student {
   medicines?: string[];
   registrationDate: string;
   document?: string;
-  class: Class;
+  groups: Group;
 }
 
 interface Teacher {
@@ -29,15 +29,19 @@ interface Teacher {
   email: string;
   hiringDate: string;
   specialization: string;
-  classes: Class[];
+  groups: Group[];
 }
 
-interface Class {
-  number: 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9;
-  letter: 'A' | 'B' | 'C' | 'D' | 'E' | 'F' | 'G' | 'H';
-  shift: 'M' | 'T' | 'N';
+interface Group {
+  code: string;
+  // 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9
+  // 'A' | 'B' | 'C' | 'D' | 'E' | 'F' | 'G' | 'H'
+  // '-'
+  // 'M' | 'T' | 'N'
   teacher: Teacher;
   students?: Student[];
 }
 
-export { Class, Parent, Student, Teacher };
+type Entity = 'parent' | 'student' | 'teacher' | 'group';
+
+export { Group, Parent, Student, Teacher, Entity };

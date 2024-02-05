@@ -1,20 +1,73 @@
 import fs from 'fs';
 import allData from '../../db.json';
+import type { Entity, Group, Parent, Student, Teacher } from '../entities';
 
-export default function createEntity(body: any) {
-  const { name, age } = body;
+function getNewStudent(data: Student) {
+  const {
+    name,
+    lastName,
+    birthDay,
+    /*parents,*/ blood,
+    registrationDate /*group*/
+  } = data;
+
+  if (!name) return { error: 'name is missing' };
+  if (!lastName) return { error: 'lastName is missing' };
+  if (!birthDay) return { error: 'birthDay is missing' };
+  // if (!parents) return { error: 'parents is missing'};
+  if (!['A+', 'A-', 'B+', 'B-', 'O+', 'O-', 'AB+', 'AB-'].includes(blood))
+    return { error: 'blood is missing' };
+  if (!registrationDate) return { error: 'registrationDate is missing' };
+  // if (!group) return { error: 'group is missing'};
+
+  return data;
+}
+
+function getNewTeacher(data: Teacher): Teacher {
+  return data;
+}
+
+function getNewGroup(data: Group): Group {
+  /**
+   * Criar Group
+   * {NUMBER} + {LETTER} - {SHIFT}
+   */
+  return data;
+}
+
+function getNewParent(data: Parent): Parent {
+  return data;
+}
+
+const getNewEntityMap = {
+  student: getNewStudent,
+  teacher: getNewTeacher,
+  group: getNewGroup,
+  parent: getNewParent
+};
+
+export default function createEntity(
+  entity: Entity,
+  body: Student & Group & Parent & Teacher
+) {
+  if (!getNewEntityMap[entity])
+    return { sucess: false, message: 'entity not found' };
+  const newEntity = getNewEntityMap[entity](body);
+
+  if ('error' in newEntity) return { sucess: false, message: newEntity.error };
+
   const newData = {
     ...allData,
-    students: [...allData.students, { name, age }]
+    [entity]: [...allData[entity], newEntity]
   };
 
   fs.writeFile('db.json', JSON.stringify(newData, null, 2), error => {
-    if (error) throw new Error('Erro ao salvar novo estudante');
-    console.log(`Estudante ${name} criado com sucesso!`);
+    if (error) throw new Error(`Erro ao salvar novo ${entity}`);
+    console.log(`${entity} criado com sucesso!`);
   });
 
-  /**
-   * Criar Class
-   * {NUMBER} + {LETTER} - {SHIFT}
-   */
+  return {
+    sucess: true,
+    message: `${entity} criado com sucesso!`
+  };
 }

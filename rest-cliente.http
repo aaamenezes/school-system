@@ -7,6 +7,10 @@ POST http://localhost:3000
 content-type: application/json
 
 {
-  "name": "André",
-  "age": 31
+  "entity": "student",
+  "name": "Tanubinha",
+  "lastName": "Mendes",
+  "birthDay": "25/08/1992",
+  "blood": "O-",
+  "registrationDate": "01/03/1999"
 }

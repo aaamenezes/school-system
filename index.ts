@@ -17,13 +17,12 @@ app.get('/', (req: Req, res: Res) => {
 });
 
 app.post('/', (req: Req, res: Res) => {
-  createEntity(req.body);
+  const { entity, ...data } = req.body;
+  const { sucess, message } = createEntity(entity, data);
   res.send({
-    message: 'acho que eu vou criar algo',
-    query: req.query,
-    body: req.body
+    sucess,
+    message
   });
-  console.log(`req.body:`, req.body);
 });
 
 app.listen(port, () => {
