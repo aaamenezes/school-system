@@ -11,6 +11,11 @@ content-type: application/json
   "name": "Tanubinha",
   "lastName": "Mendes",
   "birthDay": "25/08/1992",
+  "parents": [],
+  "allergy": [],
   "blood": "O-",
-  "registrationDate": "01/03/1999"
+  "medicines": [],
+  "registrationDate": "01/03/1999",
+  "document": "",
+  "groups": ""
 }

@@ -1,8 +1,17 @@
 import fs from 'fs';
-import allData from '../../db.json';
+import db from '../../db.json';
 import type { Entity, Group, Parent, Student, Teacher } from '../entities';
+import { getRandomId } from '../aux/getRandomID';
 
-function getNewStudent(data: Student) {
+interface CreateError {
+  error: string;
+}
+
+interface ReadyStudent extends Student {
+  registrationID: string;
+}
+
+function getNewStudent(data: Student): ReadyStudent | CreateError {
   const {
     name,
     lastName,
@@ -20,7 +29,10 @@ function getNewStudent(data: Student) {
   if (!registrationDate) return { error: 'registrationDate is missing' };
   // if (!group) return { error: 'group is missing'};
 
-  return data;
+  return {
+    registrationID: getRandomId(),
+    ...data
+  };
 }
 
 function getNewTeacher(data: Teacher): Teacher {
