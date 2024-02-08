@@ -11,6 +11,7 @@ interface Parent {
 
 type Allergies = string[];
 type Blood = 'A+' | 'A-' | 'B+' | 'B-' | 'O+' | 'O-' | 'AB+' | 'AB-';
+type Medicines = string[];
 
 interface Student {
   id: string;
@@ -20,7 +21,7 @@ interface Student {
   parents: string[];
   allergies?: Allergies;
   blood: Blood;
-  medicines?: string[];
+  medicines?: Medicines;
   registrationDate: string;
   document?: string;
   groups: Group;
@@ -51,4 +52,4 @@ interface Group {
 
 type Entity = 'parent' | 'student' | 'teacher' | 'group';
 
-export { Group, Parent, Student, Teacher, Entity, Allergies, Blood };
+export { Group, Parent, Student, Teacher, Entity, Allergies, Blood, Medicines };

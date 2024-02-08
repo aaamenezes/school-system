@@ -13,7 +13,7 @@ content-type: application/json
   "birthDay": "25/08/1992",
   "parents": ["3"],
   "allergies": [""],
-  "blood": "O-",
+  "blood": "A-",
   "medicines": [],
   "registrationDate": "01/03/1999",
   "document": "",
