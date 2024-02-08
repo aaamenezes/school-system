@@ -1,5 +1,5 @@
-import { Parent } from '../entities';
-import readEntity from '../services/read';
+import { Parent } from '../../entities';
+import readEntity from '../../services/read';
 
 export function validParents(parents: string[]) {
   if (!Array.isArray(parents)) return false;

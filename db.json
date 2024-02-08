@@ -81,16 +81,16 @@
   ],
   "student": [
     {
-      "id": "Q560",
+      "id": "MY227",
       "name": "Tanubinha",
       "lastName": "Mendes",
       "birthDay": "25/08/1992",
       "parents": [
-        "2",
-        "3",
-        "4"
+        "3"
       ],
-      "allergy": [],
+      "allergy": [
+        ""
+      ],
       "blood": "O-",
       "medicines": [],
       "registrationDate": "01/03/1999",

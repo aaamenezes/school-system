@@ -9,13 +9,15 @@ interface Parent {
   kids?: Student[]; // TODO tornar obrigatório isso aq
 }
 
+type Allergy = string[];
+
 interface Student {
   id: string;
   name: string;
   lastName: string;
   birthDay: string;
   parents: string[];
-  allergy?: string[];
+  allergy?: Allergy;
   blood: 'A+' | 'A-' | 'B+' | 'B-' | 'O+' | 'O-' | 'AB+' | 'AB-';
   medicines?: string[];
   registrationDate: string;
@@ -48,4 +50,4 @@ interface Group {
 
 type Entity = 'parent' | 'student' | 'teacher' | 'group';
 
-export { Group, Parent, Student, Teacher, Entity };
+export { Group, Parent, Student, Teacher, Entity, Allergy };
