@@ -1,6 +1,101 @@
 {
   "teacher": [],
   "group": [],
-  "parent": [],
-  "student": []
+  "parent": [
+    {
+      "id": "1",
+      "name": "Fulano",
+      "lastName": "Silva",
+      "phones": [
+        ""
+      ],
+      "emails": [
+        ""
+      ],
+      "addresses": [
+        {
+          "street": "",
+          "number": 123,
+          "city": "POA"
+        }
+      ],
+      "document": "12345789"
+    },
+    {
+      "id": "2",
+      "name": "Fulano",
+      "lastName": "Silva",
+      "phones": [
+        ""
+      ],
+      "emails": [
+        ""
+      ],
+      "addresses": [
+        {
+          "street": "",
+          "number": 123,
+          "city": "POA"
+        }
+      ],
+      "document": "12345789"
+    },
+    {
+      "id": "3",
+      "name": "Fulano",
+      "lastName": "Silva",
+      "phones": [
+        ""
+      ],
+      "emails": [
+        ""
+      ],
+      "addresses": [
+        {
+          "street": "",
+          "number": 123,
+          "city": "POA"
+        }
+      ],
+      "document": "12345789"
+    },
+    {
+      "id": "4",
+      "name": "Fulano",
+      "lastName": "Silva",
+      "phones": [
+        ""
+      ],
+      "emails": [
+        ""
+      ],
+      "addresses": [
+        {
+          "street": "",
+          "number": 123,
+          "city": "POA"
+        }
+      ],
+      "document": "12345789"
+    }
+  ],
+  "student": [
+    {
+      "id": "Q560",
+      "name": "Tanubinha",
+      "lastName": "Mendes",
+      "birthDay": "25/08/1992",
+      "parents": [
+        "2",
+        "3",
+        "4"
+      ],
+      "allergy": [],
+      "blood": "O-",
+      "medicines": [],
+      "registrationDate": "01/03/1999",
+      "document": "",
+      "groups": ""
+    }
+  ]
 }

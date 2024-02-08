@@ -1,18 +1,20 @@
 interface Parent {
+  id: string;
   name?: string;
   lastName: string;
   phones: string[];
   emails: string[];
   addresses: { street: string; number: number; city: string }[];
   document?: string;
-  kids: Student[];
+  kids?: Student[]; // TODO tornar obrigatório isso aq
 }
 
 interface Student {
+  id: string;
   name: string;
   lastName: string;
   birthDay: string;
-  parents: Parent[];
+  parents: string[];
   allergy?: string[];
   blood: 'A+' | 'A-' | 'B+' | 'B-' | 'O+' | 'O-' | 'AB+' | 'AB-';
   medicines?: string[];
@@ -22,6 +24,7 @@ interface Student {
 }
 
 interface Teacher {
+  id: string;
   name: string;
   lastName: string;
   document: string;
@@ -33,6 +36,7 @@ interface Teacher {
 }
 
 interface Group {
+  id: string;
   code: string;
   // 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9
   // 'A' | 'B' | 'C' | 'D' | 'E' | 'F' | 'G' | 'H'

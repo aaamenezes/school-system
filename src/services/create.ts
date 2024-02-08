@@ -2,35 +2,37 @@ import fs from 'fs';
 import db from '../../db.json';
 import type { Entity, Group, Parent, Student, Teacher } from '../entities';
 import { getRandomId } from '../aux/getRandomID';
+import { validParents } from '../aux/validParents';
 
 interface CreateError {
   error: string;
 }
 
-interface ReadyStudent extends Student {
-  registrationID: string;
-}
-
-function getNewStudent(data: Student): ReadyStudent | CreateError {
+function getNewStudent(data: Omit<Student, 'id'>): Student | CreateError {
   const {
     name,
     lastName,
     birthDay,
-    /*parents,*/ blood,
-    registrationDate /*group*/
+    parents,
+    // allergy,
+    blood,
+    // medicines,
+    registrationDate
+    // document,
+    // groups,
   } = data;
 
   if (!name) return { error: 'name is missing' };
   if (!lastName) return { error: 'lastName is missing' };
   if (!birthDay) return { error: 'birthDay is missing' };
-  // if (!parents) return { error: 'parents is missing'};
+  if (!validParents(parents)) return { error: 'parents is missing' };
   if (!['A+', 'A-', 'B+', 'B-', 'O+', 'O-', 'AB+', 'AB-'].includes(blood))
     return { error: 'blood is missing' };
   if (!registrationDate) return { error: 'registrationDate is missing' };
   // if (!group) return { error: 'group is missing'};
 
   return {
-    registrationID: getRandomId(),
+    id: getRandomId(),
     ...data
   };
 }
@@ -69,8 +71,9 @@ export default function createEntity(
   if ('error' in newEntity) return { sucess: false, message: newEntity.error };
 
   const newData = {
-    ...allData,
-    [entity]: [...allData[entity], newEntity]
+    ...db,
+    // [entity]: [...db[entity], newEntity]
+    [entity]: [newEntity]
   };
 
   fs.writeFile('db.json', JSON.stringify(newData, null, 2), error => {

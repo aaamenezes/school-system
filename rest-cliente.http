@@ -11,7 +11,7 @@ content-type: application/json
   "name": "Tanubinha",
   "lastName": "Mendes",
   "birthDay": "25/08/1992",
-  "parents": [],
+  "parents": ["3"],
   "allergy": [],
   "blood": "O-",
   "medicines": [],

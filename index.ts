@@ -13,8 +13,8 @@ const port = 3000;
 app.use(bodyParser.json());
 
 app.get('/', (req: Req, res: Res) => {
-  const allData = readEntity();
-  res.send(allData);
+  const db = readEntity();
+  res.send(db);
 });
 
 app.post('/', (req: Req, res: Res) => {

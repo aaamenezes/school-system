@@ -1,5 +1,5 @@
-import allData from '../../db.json';
+import db from '../../db.json';
 
 export default function readEntity() {
-  return allData;
+  return db;
 }
