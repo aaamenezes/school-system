@@ -1,4 +1,5 @@
 import { validParents } from './validParents';
-import { validAllergy } from './validAllergy';
+import { validAllergies } from './validAllergies';
+import { validBlood } from './validBlood';
 
-export { validParents, validAllergy };
+export { validParents, validAllergies, validBlood };

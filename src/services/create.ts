@@ -2,7 +2,7 @@ import fs from 'fs';
 import db from '../../db.json';
 import type { Entity, Group, Parent, Student, Teacher } from '../entities';
 import { getRandomId } from '../aux/getRandomID';
-import { validParents, validAllergy } from '../aux/validatores/';
+import { validParents, validAllergies, validBlood } from '../aux/validatores/';
 
 interface CreateError {
   error: string;
@@ -14,9 +14,9 @@ function getNewStudent(data: Omit<Student, 'id'>): Student | CreateError {
     lastName,
     birthDay,
     parents,
-    allergy,
+    allergies,
     blood,
-    // medicines,
+    medicines,
     registrationDate
     // document,
     // groups,
@@ -26,9 +26,8 @@ function getNewStudent(data: Omit<Student, 'id'>): Student | CreateError {
   if (!lastName) return { error: 'lastName is missing' };
   if (!birthDay) return { error: 'birthDay is missing' };
   if (!validParents(parents)) return { error: 'parents is missing' };
-  if (!validAllergy(allergy)) return { error: 'allergy is missing' };
-  if (!['A+', 'A-', 'B+', 'B-', 'O+', 'O-', 'AB+', 'AB-'].includes(blood))
-    return { error: 'blood is missing' };
+  if (!validAllergies(allergies)) return { error: 'allergy is missing' };
+  if (!validBlood(blood)) return { error: 'blood is missing' };
   if (!registrationDate) return { error: 'registrationDate is missing' };
   // if (!group) return { error: 'group is missing'};
 

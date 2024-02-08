@@ -12,7 +12,7 @@ content-type: application/json
   "lastName": "Mendes",
   "birthDay": "25/08/1992",
   "parents": ["3"],
-  "allergy": [""],
+  "allergies": [""],
   "blood": "O-",
   "medicines": [],
   "registrationDate": "01/03/1999",

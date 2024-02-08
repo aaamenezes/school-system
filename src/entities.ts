@@ -9,7 +9,8 @@ interface Parent {
   kids?: Student[]; // TODO tornar obrigatório isso aq
 }
 
-type Allergy = string[];
+type Allergies = string[];
+type Blood = 'A+' | 'A-' | 'B+' | 'B-' | 'O+' | 'O-' | 'AB+' | 'AB-';
 
 interface Student {
   id: string;
@@ -17,8 +18,8 @@ interface Student {
   lastName: string;
   birthDay: string;
   parents: string[];
-  allergy?: Allergy;
-  blood: 'A+' | 'A-' | 'B+' | 'B-' | 'O+' | 'O-' | 'AB+' | 'AB-';
+  allergies?: Allergies;
+  blood: Blood;
   medicines?: string[];
   registrationDate: string;
   document?: string;
@@ -50,4 +51,4 @@ interface Group {
 
 type Entity = 'parent' | 'student' | 'teacher' | 'group';
 
-export { Group, Parent, Student, Teacher, Entity, Allergy };
+export { Group, Parent, Student, Teacher, Entity, Allergies, Blood };
