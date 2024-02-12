@@ -6,7 +6,7 @@ interface Parent {
   emails: string[];
   addresses: { street: string; number: number; city: string }[];
   document?: string;
-  kids?: Student[]; // TODO tornar obrigatório isso aq
+  kids?: string[]; // TODO tornar obrigatório isso aq
 }
 
 type Allergies = string[];
@@ -24,7 +24,7 @@ interface Student {
   medicines?: Medicines;
   registrationDate: string;
   document?: string;
-  groups: Group;
+  groupId: string;
 }
 
 interface Teacher {
@@ -36,7 +36,7 @@ interface Teacher {
   email: string;
   hiringDate: string;
   specialization: string;
-  groups: Group[];
+  groupsIds: string[];
 }
 
 interface Group {
@@ -46,8 +46,8 @@ interface Group {
   // 'A' | 'B' | 'C' | 'D' | 'E' | 'F' | 'G' | 'H'
   // '-'
   // 'M' | 'T' | 'N'
-  teacher: Teacher;
-  students?: Student[];
+  teacherId: string;
+  studentsIds?: string[];
 }
 
 type Entity = 'parent' | 'student' | 'teacher' | 'group';

@@ -1,6 +1,22 @@
 {
   "teacher": [],
-  "group": [],
+  "group": [
+    {
+      "id": "1",
+      "code": "",
+      "teacherId": ""
+    },
+    {
+      "id": "2",
+      "code": "",
+      "teacherId": ""
+    },
+    {
+      "id": "3",
+      "code": "",
+      "teacherId": ""
+    }
+  ],
   "parent": [
     {
       "id": "1",
@@ -81,18 +97,21 @@
   ],
   "student": [
     {
-      "id": "X578",
-      "name": "Tanubinha",
+      "id": "ZL965",
+      "name": "Tanubinhaaaaa",
       "lastName": "Mendes",
       "birthDay": "25/08/1992",
       "parents": [
         "3"
       ],
+      "allergies": [
+        ""
+      ],
       "blood": "A-",
       "medicines": [],
       "registrationDate": "01/03/1999",
-      "document": "",
-      "groups": ""
+      "document": "121043958230",
+      "groupId": "3"
     }
   ]
 }

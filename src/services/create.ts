@@ -6,7 +6,9 @@ import {
   validParents,
   validAllergies,
   validMedicines,
-  validBlood
+  validBlood,
+  validDocument,
+  validGroup
 } from '../aux/validatores/';
 
 interface CreateError {
@@ -22,9 +24,9 @@ function getNewStudent(data: Omit<Student, 'id'>): Student | CreateError {
     allergies,
     blood,
     medicines,
-    registrationDate
-    // document,
-    // groups,
+    registrationDate,
+    document,
+    groupId
   } = data;
 
   if (!name) return { error: 'name is missing' };
@@ -35,7 +37,8 @@ function getNewStudent(data: Omit<Student, 'id'>): Student | CreateError {
   if (!validBlood(blood)) return { error: 'blood is missing' };
   if (!validMedicines(medicines)) return { error: 'medicines is missing' };
   if (!registrationDate) return { error: 'registrationDate is missing' };
-  // if (!group) return { error: 'group is missing'};
+  if (!validDocument(document)) return { error: 'document is missing' };
+  if (!validGroup(groupId)) return { error: 'groups is missing' };
 
   return {
     id: getRandomId(),
@@ -78,8 +81,8 @@ export default function createEntity(
 
   const newData = {
     ...db,
-    // [entity]: [...db[entity], newEntity]
-    [entity]: [newEntity]
+    [entity]: [...db[entity], newEntity]
+    // [entity]: [newEntity]
   };
 
   fs.writeFile('db.json', JSON.stringify(newData, null, 2), error => {
