@@ -18,15 +18,17 @@ export default function createEntity(
   body: Student & Group & Parent & Teacher
 ) {
   if (!getNewEntityMap[entity])
-    return { sucess: false, message: 'entity not found' };
-  const newEntity = getNewEntityMap[entity](body);
+    return { success: false, message: 'entity not found' };
 
-  if ('error' in newEntity) return { sucess: false, message: newEntity.error };
+  const newEntityResponse = getNewEntityMap[entity](body);
+
+  if ('error' in newEntityResponse)
+    return { success: false, message: newEntityResponse.error };
 
   const newDB = {
     ...db,
-    [entity]: [...db[entity], newEntity]
-    // [entity]: [newEntity]
+    [entity]: [...db[entity], newEntityResponse]
+    // [entity]: [newEntityResponse]
   };
 
   fs.writeFile('db.json', JSON.stringify(newDB, null, 2), error => {
@@ -35,7 +37,7 @@ export default function createEntity(
   });
 
   return {
-    sucess: true,
+    success: true,
     message: `${entity} criado com sucesso!`
   };
 }

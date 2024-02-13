@@ -5,8 +5,8 @@ export function validRequiredGroup(groupId: string) {
   if (!groupId) return false;
   if (typeof groupId !== 'string') return false;
 
-  const groupsIDs = readEntity().group.map((group: Group) => group.id);
-  const groupsIsValid = groupsIDs.includes(groupId);
+  const groupsIds = readEntity().group.map((group: Group) => group.id);
+  const groupsIsValid = groupsIds.includes(groupId);
 
   return groupsIsValid;
 }

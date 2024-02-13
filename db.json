@@ -1,117 +1,31 @@
 {
+  "student": [],
   "teacher": [],
-  "group": [
-    {
-      "id": "1",
-      "code": "",
-      "teacherId": ""
-    },
-    {
-      "id": "2",
-      "code": "",
-      "teacherId": ""
-    },
-    {
-      "id": "3",
-      "code": "",
-      "teacherId": ""
-    }
-  ],
+  "group": [],
   "parent": [
     {
       "id": "1",
-      "name": "Fulano",
-      "lastName": "Silva",
+      "name": "jose",
+      "lastName": "miranda",
       "phones": [
-        ""
+        "12345678"
       ],
       "emails": [
-        ""
+        "jose@jose"
       ],
       "addresses": [
         {
-          "street": "",
+          "street": "jose street",
           "number": 123,
-          "city": "POA"
+          "city": "jose city"
         }
       ],
-      "document": "12345789"
-    },
-    {
-      "id": "2",
-      "name": "Fulano",
-      "lastName": "Silva",
-      "phones": [
-        ""
-      ],
-      "emails": [
-        ""
-      ],
-      "addresses": [
-        {
-          "street": "",
-          "number": 123,
-          "city": "POA"
-        }
-      ],
-      "document": "12345789"
-    },
-    {
-      "id": "3",
-      "name": "Fulano",
-      "lastName": "Silva",
-      "phones": [
-        ""
-      ],
-      "emails": [
-        ""
-      ],
-      "addresses": [
-        {
-          "street": "",
-          "number": 123,
-          "city": "POA"
-        }
-      ],
-      "document": "12345789"
-    },
-    {
-      "id": "4",
-      "name": "Fulano",
-      "lastName": "Silva",
-      "phones": [
-        ""
-      ],
-      "emails": [
-        ""
-      ],
-      "addresses": [
-        {
-          "street": "",
-          "number": 123,
-          "city": "POA"
-        }
-      ],
-      "document": "12345789"
-    }
-  ],
-  "student": [
-    {
-      "id": "ZL965",
-      "name": "Tanubinhaaaaa",
-      "lastName": "Mendes",
-      "birthDay": "25/08/1992",
-      "parents": [
+      "document": "123456789",
+      "studentsIds": [
+        "1",
+        "2",
         "3"
-      ],
-      "allergies": [
-        ""
-      ],
-      "blood": "A-",
-      "medicines": [],
-      "registrationDate": "01/03/1999",
-      "document": "121043958230",
-      "groupId": "3"
+      ]
     }
   ]
 }

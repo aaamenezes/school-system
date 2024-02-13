@@ -19,8 +19,8 @@ app.get('/', (req: Req, res: Res) => {
 
 app.post('/', (req: Req, res: Res) => {
   const { entity, ...data } = req.body;
-  const { sucess, message } = createEntity(entity, data);
-  res.send({ sucess, message });
+  const { success, message } = createEntity(entity, data);
+  res.send({ success, message });
 });
 
 app.listen(port, () => {

@@ -1,3 +1,4 @@
+import { Parent } from '../../entities';
 import readEntity from '../../services/read';
 
 export function validRequiredParents(parents: string[]) {
@@ -5,7 +6,7 @@ export function validRequiredParents(parents: string[]) {
   if (parents.length === 0) return false;
   if (!parents.every(parent => typeof parent === 'string')) return false;
 
-  const parentsIDs = readEntity().parent.map(parent => parent.id);
+  const parentsIDs = readEntity().parent.map((parent: Parent) => parent.id);
 
   const parentsIsValid = parents
     .map(parentID => parentsIDs.includes(parentID))

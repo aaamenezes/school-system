@@ -6,7 +6,7 @@ interface Parent {
   emails: string[];
   addresses: { street: string; number: number; city: string }[];
   document?: string;
-  kids: string[];
+  studentsIds: string[];
 }
 
 type Allergies = string[];
@@ -18,7 +18,7 @@ interface Student {
   name: string;
   lastName: string;
   birthDay: string;
-  parents: string[];
+  parentsIds: string[];
   allergies?: Allergies;
   blood: Blood;
   medicines?: Medicines;

@@ -16,7 +16,7 @@ export function getNewStudent(
     name,
     lastName,
     birthDay,
-    parents,
+    parentsIds,
     allergies,
     blood,
     medicines,
@@ -28,7 +28,7 @@ export function getNewStudent(
   if (!name) return { error: 'name is missing' };
   if (!lastName) return { error: 'lastName is missing' };
   if (!birthDay) return { error: 'birthDay is missing' };
-  if (!validRequiredParents(parents)) return { error: 'parents is missing' };
+  if (!validRequiredParents(parentsIds)) return { error: 'parents is missing' };
   if (!validNonRequiredArrayString<Allergies>(allergies))
     return { error: 'allergy is missing' };
   if (!validRequiredBlood(blood)) return { error: 'blood is missing' };
