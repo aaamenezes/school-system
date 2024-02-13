@@ -1,5 +1,4 @@
 {
-  "students": [],
   "teachers": [],
   "groups": [
     {
@@ -14,31 +13,27 @@
   ],
   "parents": [
     {
-      "id": "3",
-      "name": "jose",
-      "lastName": "miranda",
+      "id": "JE471",
+      "name": "juçaro",
+      "lastName": "araujo",
       "phones": [
-        "12345678"
+        "7654"
       ],
       "emails": [
-        "jose@jose"
+        "@"
       ],
-      "addresses": [
-        {
-          "street": "jose street",
-          "number": 123,
-          "city": "jose city"
-        }
-      ],
-      "document": "123456789",
+      "addresses": {
+        "street": "josue",
+        "number": 310,
+        "city": "gti"
+      },
+      "document": "3454",
       "studentsIds": [
-        "1",
-        "2",
-        "3"
+        "UN287"
       ]
     }
   ],
-  "student": [
+  "students": [
     {
       "id": "UN287",
       "name": "Tanubinho",

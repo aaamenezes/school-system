@@ -4,18 +4,19 @@ Content-Type: application/json
 ###
 
 POST http://localhost:3000
-content-type: application/json
+Content-Type: application/json
 
 {
-  "entity": "student",
-  "name": "Tanubinho",
-  "lastName": "Mendes",
-  "birthDay": "25/08/1992",
-  "parentsIds": ["3"],
-  "allergies": [""],
-  "blood": "A-",
-  "medicines": [],
-  "registrationDate": "01/03/1999",
-  "document": "121043958230",
-  "groupId": "3"
+  "entity": "parent",
+  "name": "juçaro",
+  "lastName": "araujo",
+  "phones": ["7654"],
+  "emails": ["@"],
+  "addresses": {
+    "street": "josue",
+    "number": 310,
+    "city": "gti"
+  },
+  "document": "3454",
+  "studentsIds": ["UN287"]
 }

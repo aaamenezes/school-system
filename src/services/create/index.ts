@@ -27,7 +27,7 @@ export default function createEntity(
 
   const newDB = {
     ...db,
-    [entity]: [newEntityResponse]
+    [entity + 's']: [newEntityResponse]
     // [entity + 's']: [...db[entity + 's'], newEntityResponse]
   };
 
