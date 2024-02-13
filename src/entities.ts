@@ -6,7 +6,7 @@ interface Parent {
   emails: string[];
   addresses: { street: string; number: number; city: string }[];
   document?: string;
-  kids?: string[]; // TODO tornar obrigatório isso aq
+  kids: string[];
 }
 
 type Allergies = string[];

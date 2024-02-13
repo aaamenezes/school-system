@@ -1,6 +1,7 @@
 function generateRandomLetter() {
   const letters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
-  return letters.charAt(Math.round(Math.random() * letters.length));
+  const randomPosition = Math.round(Math.random() * letters.length);
+  return letters.charAt(randomPosition);
 }
 
 function generateRandomNumber() {

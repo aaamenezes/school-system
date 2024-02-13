@@ -23,13 +23,13 @@ export default function createEntity(
 
   if ('error' in newEntity) return { sucess: false, message: newEntity.error };
 
-  const newData = {
+  const newDB = {
     ...db,
     [entity]: [...db[entity], newEntity]
     // [entity]: [newEntity]
   };
 
-  fs.writeFile('db.json', JSON.stringify(newData, null, 2), error => {
+  fs.writeFile('db.json', JSON.stringify(newDB, null, 2), error => {
     if (error) throw new Error(`Erro ao salvar novo ${entity}: ${error}`);
     console.log(`${entity} criado com sucesso!`);
   });

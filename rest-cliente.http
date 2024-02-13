@@ -7,15 +7,5 @@ POST http://localhost:3000
 content-type: application/json
 
 {
-  "entity": "student",
-  "name": "Tanubinhaaaaa",
-  "lastName": "Mendes",
-  "birthDay": "25/08/1992",
-  "parents": ["3"],
-  "allergies": [""],
-  "blood": "A-",
-  "medicines": [],
-  "registrationDate": "01/03/1999",
-  "document": "121043958230",
-  "groupId": "3"
+  "entity": "parent"
 }
