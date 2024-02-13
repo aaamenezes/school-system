@@ -27,8 +27,8 @@ export default function createEntity(
 
   const newDB = {
     ...db,
-    [entity]: [...db[entity], newEntityResponse]
-    // [entity]: [newEntityResponse]
+    [entity]: [newEntityResponse]
+    // [entity + 's']: [...db[entity + 's'], newEntityResponse]
   };
 
   fs.writeFile('db.json', JSON.stringify(newDB, null, 2), error => {

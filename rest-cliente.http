@@ -8,10 +8,10 @@ content-type: application/json
 
 {
   "entity": "student",
-  "name": "Tanubinhaaaaa",
+  "name": "Tanubinho",
   "lastName": "Mendes",
   "birthDay": "25/08/1992",
-  "parents": ["3"],
+  "parentsIds": ["3"],
   "allergies": [""],
   "blood": "A-",
   "medicines": [],
