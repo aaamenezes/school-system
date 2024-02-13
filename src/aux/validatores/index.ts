@@ -1,15 +1,13 @@
-import { validParents } from './validParents';
-import { validAllergies } from './validAllergies';
-import { validBlood } from './validBlood';
-import { validMedicines } from './validMedicines';
-import { validDocument } from './validDocument';
-import { validGroup } from './validGroup';
+import { validRequiredParents } from './validRequiredParents';
+import { validNonRequiredArrayString } from './validNonRequiredArrayString';
+import { validRequiredBlood } from './validRequiredBlood';
+import { validNonRequiredString } from './validNonRequiredString';
+import { validRequiredGroup } from './validRequiredGroup';
 
 export {
-  validParents,
-  validAllergies,
-  validBlood,
-  validMedicines,
-  validDocument,
-  validGroup
+  validRequiredParents,
+  validNonRequiredArrayString,
+  validRequiredBlood,
+  validNonRequiredString,
+  validRequiredGroup
 };
