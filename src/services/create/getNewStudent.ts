@@ -4,7 +4,8 @@ import {
   validRequiredBlood,
   validNonRequiredString,
   validRequiredGroups,
-  validRequiredParents
+  validRequiredParents,
+  validRequiredString
 } from '../../aux/validatores';
 import type { Medicines, Allergies, Student } from '../../entities';
 import type { CreateError } from './interfaces';
@@ -25,9 +26,9 @@ export function getNewStudent(
     groupId
   } = data;
 
-  if (!name) return { error: 'name is missing' };
-  if (!lastName) return { error: 'lastName is missing' };
-  if (!birthDay) return { error: 'birthDay is missing' };
+  if (!validRequiredString(name)) return { error: 'name is missing' };
+  if (!validRequiredString(lastName)) return { error: 'lastName is missing' };
+  if (!validRequiredString(birthDay)) return { error: 'birthDay is missing' };
   if (!validRequiredParents(parentsIds)) return { error: 'parents is missing' };
   if (!validNonRequiredArrayString<Allergies>(allergies))
     return { error: 'allergy is missing' };
