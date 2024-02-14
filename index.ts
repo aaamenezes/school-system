@@ -18,8 +18,8 @@ app.get('/', (req: Req, res: Res) => {
 });
 
 app.post('/', (req: Req, res: Res) => {
-  const { entity, ...data } = req.body;
-  const { success, message } = createEntity(entity, data);
+  const { entity, ...body } = req.body;
+  const { success, message } = createEntity(entity, body);
   res.send({ success, message });
 });
 

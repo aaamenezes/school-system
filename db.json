@@ -1,0 +1,24 @@
+{
+  "parents": [
+    {
+      "id": "BU891",
+      "name": "juçaro",
+      "lastName": "araujo",
+      "phones": [
+        "519969894156"
+      ],
+      "emails": [
+        "@"
+      ],
+      "addresses": {
+        "street": "josue",
+        "number": 310,
+        "city": "gti"
+      },
+      "document": "3454",
+      "studentsIds": [
+        "UN287"
+      ]
+    }
+  ]
+}
