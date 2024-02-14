@@ -10,7 +10,7 @@ Content-Type: application/json
   "entity": "parent",
   "name": "juçaro",
   "lastName": "araujo",
-  "phones": ["7654"],
+  "phones": ["519969894156"],
   "emails": ["@"],
   "addresses": {
     "street": "josue",

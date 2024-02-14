@@ -1,4 +1,5 @@
 import { getRandomId } from '../../aux/getRandomID';
+import { validRequiredArrayString } from '../../aux/validatores';
 import { Parent } from '../../entities';
 import { CreateError } from './interfaces';
 
@@ -7,8 +8,9 @@ export function getNewParent(data: Omit<Parent, 'id'>): Parent | CreateError {
     data;
 
   if (!name) return { error: 'name is missing' };
-  // if (!lastName) return { error: 'lastName is missing' };
-  // if (!phones) return { error: 'phones is missing' };
+  if (!lastName) return { error: 'lastName is missing' };
+  if (!validRequiredArrayString<string[]>(phones))
+    return { error: 'phones is missing' };
   // if (!emails) return { error: 'emails is missing' };
   // if (!addresses) return { error: 'addresses is missing' };
   // if (!document) return { error: 'document is missing' };
