@@ -1,16 +1,19 @@
 import { Parent } from '../../entities';
 import readEntity from '../../services/read';
 
-export function validRequiredParents(parents: string[]) {
-  if (!Array.isArray(parents)) return false;
-  if (parents.length === 0) return false;
-  if (!parents.every(parent => typeof parent === 'string')) return false;
+export function validRequiredParents(parentsIds: string[]) {
+  if (!parentsIds) return false;
+  if (!Array.isArray(parentsIds)) return false;
+  if (parentsIds.length === 0) return false;
+  if (parentsIds.some(parentId => typeof parentId !== 'string')) return false;
 
-  const parentsIds = readEntity().parents.map((parent: Parent) => parent.id);
+  const parentsIdsFromDb = readEntity().parents.map(
+    (parent: Parent) => parent.id
+  );
 
-  const parentsIsValid = parents
-    .map(parentID => parentsIds.includes(parentID))
-    .reduce((result, current) => result && current, true);
+  const parentsIsValid = parentsIds.every(parentId =>
+    parentsIdsFromDb.includes(parentId)
+  );
 
   return parentsIsValid;
 }

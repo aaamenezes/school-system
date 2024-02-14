@@ -2,7 +2,8 @@ import { getRandomId } from '../../aux/getRandomID';
 import {
   validRequiredArrayString,
   validRequireAddresses,
-  validNonRequiredString
+  validNonRequiredString,
+  validRequiredStudents
 } from '../../aux/validatores';
 import { Parent } from '../../entities';
 import { CreateError } from './interfaces';
@@ -19,7 +20,7 @@ export function getNewParent(data: Omit<Parent, 'id'>): Parent | CreateError {
     return { error: 'addresses is missing' };
   if (!validNonRequiredString(document))
     return { error: 'document is missing' };
-  // if (!studentsIds) return { error: 'kids is missing' };
+  if (!validRequiredStudents(studentsIds)) return { error: 'kids is missing' };
 
   return {
     id: getRandomId(),

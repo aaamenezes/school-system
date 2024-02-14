@@ -5,6 +5,7 @@ import { validNonRequiredString } from './validNonRequiredString';
 import { validRequiredGroup } from './validRequiredGroup';
 import { validRequiredArrayString } from './validRequiredArrayString';
 import { validRequireAddresses } from './validRequireAddresses';
+import { validRequiredStudents } from './validRequiredStudents';
 
 export {
   validRequiredParents,
@@ -13,5 +14,6 @@ export {
   validNonRequiredString,
   validRequiredGroup,
   validRequiredArrayString,
-  validRequireAddresses
+  validRequireAddresses,
+  validRequiredStudents
 };
