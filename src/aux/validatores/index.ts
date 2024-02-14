@@ -2,7 +2,7 @@ import { validRequiredParents } from './validRequiredParents';
 import { validNonRequiredArrayString } from './validNonRequiredArrayString';
 import { validRequiredBlood } from './validRequiredBlood';
 import { validNonRequiredString } from './validNonRequiredString';
-import { validRequiredGroup } from './validRequiredGroup';
+import { validRequiredGroups } from './validRequiredGroups';
 import { validRequiredArrayString } from './validRequiredArrayString';
 import { validRequireAddresses } from './validRequireAddresses';
 import { validRequiredStudents } from './validRequiredStudents';
@@ -12,7 +12,7 @@ export {
   validNonRequiredArrayString,
   validRequiredBlood,
   validNonRequiredString,
-  validRequiredGroup,
+  validRequiredGroups,
   validRequiredArrayString,
   validRequireAddresses,
   validRequiredStudents

@@ -3,7 +3,7 @@ import {
   validNonRequiredArrayString,
   validRequiredBlood,
   validNonRequiredString,
-  validRequiredGroup,
+  validRequiredGroups,
   validRequiredParents
 } from '../../aux/validatores';
 import type { Medicines, Allergies, Student } from '../../entities';
@@ -37,7 +37,7 @@ export function getNewStudent(
   if (!registrationDate) return { error: 'registrationDate is missing' };
   if (!validNonRequiredString(document))
     return { error: 'document is missing' };
-  if (!validRequiredGroup(groupId)) return { error: 'groups is missing' };
+  if (!validRequiredGroups([groupId])) return { error: 'groups is missing' };
 
   return {
     id: getRandomId(),

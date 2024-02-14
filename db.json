@@ -22,5 +22,31 @@
         "UN287"
       ]
     }
+  ],
+  "groups": [
+    {
+      "id": "1"
+    },
+    {
+      "id": "2"
+    },
+    {
+      "id": "3"
+    }
+  ],
+  "teachers": [
+    {
+      "id": "NI331",
+      "name": "sandra",
+      "lastName": "sei la",
+      "document": "3454",
+      "phone": "519969894156",
+      "email": "@",
+      "hiringDate": "15/153/156",
+      "specialization": "história",
+      "groupsIds": [
+        "1"
+      ]
+    }
   ]
 }

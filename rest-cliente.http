@@ -7,18 +7,13 @@ POST http://localhost:3000
 Content-Type: application/json
 
 {
-  "entity": "parent",
-  "name": "juçaro",
-  "lastName": "araujo",
-  "phones": ["519969894156"],
-  "emails": ["@"],
-  "addresses": [
-    {
-      "street": "josue",
-      "number": 310,
-      "city": "gti"
-    }
-  ],
+  "entity": "teacher",
+  "name": "sandra",
+  "lastName": "sei la",
   "document": "3454",
-  "studentsIds": ["UN287"]
+  "phone": "519969894156",
+  "email": "@",
+  "hiringDate": "15/153/156",
+  "specialization": "história",
+  "groupsIds": ["1"]
 }
