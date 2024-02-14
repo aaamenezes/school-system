@@ -4,6 +4,7 @@ import { validRequiredBlood } from './validRequiredBlood';
 import { validNonRequiredString } from './validNonRequiredString';
 import { validRequiredGroup } from './validRequiredGroup';
 import { validRequiredArrayString } from './validRequiredArrayString';
+import { validRequireAddresses } from './validRequireAddresses';
 
 export {
   validRequiredParents,
@@ -11,5 +12,6 @@ export {
   validRequiredBlood,
   validNonRequiredString,
   validRequiredGroup,
-  validRequiredArrayString
+  validRequiredArrayString,
+  validRequireAddresses
 };

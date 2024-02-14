@@ -1,7 +1,7 @@
 {
   "parents": [
     {
-      "id": "BU891",
+      "id": "FU265",
       "name": "juçaro",
       "lastName": "araujo",
       "phones": [
@@ -10,11 +10,13 @@
       "emails": [
         "@"
       ],
-      "addresses": {
-        "street": "josue",
-        "number": 310,
-        "city": "gti"
-      },
+      "addresses": [
+        {
+          "street": "josue",
+          "number": 310,
+          "city": "gti"
+        }
+      ],
       "document": "3454",
       "studentsIds": [
         "UN287"

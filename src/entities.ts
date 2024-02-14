@@ -1,19 +1,26 @@
-interface Parent {
+export type Allergies = string[];
+export type Blood = 'A+' | 'A-' | 'B+' | 'B-' | 'O+' | 'O-' | 'AB+' | 'AB-';
+export type Medicines = string[];
+export type Entity = 'parent' | 'student' | 'teacher' | 'group';
+
+export type Address = {
+  street: string;
+  number: number;
+  city: string;
+};
+
+export interface Parent {
   id: string;
   name?: string;
   lastName: string;
   phones: string[];
   emails: string[];
-  addresses: { street: string; number: number; city: string }[];
+  addresses: Address[];
   document?: string;
   studentsIds: string[];
 }
 
-type Allergies = string[];
-type Blood = 'A+' | 'A-' | 'B+' | 'B-' | 'O+' | 'O-' | 'AB+' | 'AB-';
-type Medicines = string[];
-
-interface Student {
+export interface Student {
   id: string;
   name: string;
   lastName: string;
@@ -27,7 +34,7 @@ interface Student {
   groupId: string;
 }
 
-interface Teacher {
+export interface Teacher {
   id: string;
   name: string;
   lastName: string;
@@ -39,7 +46,7 @@ interface Teacher {
   groupsIds: string[];
 }
 
-interface Group {
+export interface Group {
   id: string;
   code: string;
   // 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9
@@ -49,7 +56,3 @@ interface Group {
   teacherId: string;
   studentsIds?: string[];
 }
-
-type Entity = 'parent' | 'student' | 'teacher' | 'group';
-
-export { Group, Parent, Student, Teacher, Entity, Allergies, Blood, Medicines };
