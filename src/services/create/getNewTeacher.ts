@@ -1,5 +1,6 @@
-import { getRandomId } from '../../aux/getRandomID';
+import { getRandomId } from '../../aux/getRandom';
 import {
+  validNonRequiredString,
   validRequiredGroups,
   validRequiredString
 } from '../../aux/validatores';
@@ -27,12 +28,19 @@ export function getNewTeacher(
   if (!validRequiredString(email)) return { error: 'email is missing' };
   if (!validRequiredString(hiringDate))
     return { error: 'hiringDate is missing' };
-  if (!validRequiredString(specialization))
+  if (!validNonRequiredString(specialization))
     return { error: 'specialization is missing' };
   if (!validRequiredGroups(groupsIds)) return { error: 'groupsIds is missing' };
 
   return {
     id: getRandomId(),
-    ...data
+    name,
+    lastName,
+    document,
+    phone,
+    email,
+    hiringDate,
+    specialization,
+    groupsIds
   };
 }

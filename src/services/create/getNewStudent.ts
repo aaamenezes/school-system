@@ -1,4 +1,4 @@
-import { getRandomId } from '../../aux/getRandomID';
+import { getRandomId } from '../../aux/getRandom';
 import {
   validNonRequiredArrayString,
   validRequiredBlood,
@@ -42,6 +42,15 @@ export function getNewStudent(
 
   return {
     id: getRandomId(),
-    ...data
+    name,
+    lastName,
+    birthDay,
+    parentsIds,
+    allergies,
+    blood,
+    medicines,
+    registrationDate,
+    document,
+    groupId
   };
 }

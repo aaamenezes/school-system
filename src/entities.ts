@@ -16,7 +16,7 @@ export interface Parent {
   phones: string[];
   emails: string[];
   addresses: Address[];
-  document?: string;
+  document: string;
   studentsIds: string[];
 }
 
@@ -42,7 +42,7 @@ export interface Teacher {
   phone: string;
   email: string;
   hiringDate: string;
-  specialization: string;
+  specialization?: string;
   groupsIds: string[];
 }
 

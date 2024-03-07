@@ -17,10 +17,11 @@ export default function createEntity(
   entity: Entity,
   body: Student & Group & Parent & Teacher
 ) {
-  if (!getNewEntityMap[entity])
-    return { success: false, message: 'entity not found' };
+  const getNewEntity = getNewEntityMap[entity];
 
-  const newEntityResponse = getNewEntityMap[entity](body);
+  if (!getNewEntity) return { success: false, message: 'entity not found' };
+
+  const newEntityResponse = getNewEntity(body);
 
   if ('error' in newEntityResponse)
     return { success: false, message: newEntityResponse.error };
