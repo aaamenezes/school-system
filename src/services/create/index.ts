@@ -7,10 +7,10 @@ import { getNewGroup } from './getNewGroup';
 import { getNewParent } from './getNewParent';
 
 const getNewEntityMap = {
-  student: getNewStudent,
-  teacher: getNewTeacher,
-  group: getNewGroup,
-  parent: getNewParent
+  students: getNewStudent,
+  teachers: getNewTeacher,
+  groups: getNewGroup,
+  parents: getNewParent
 };
 
 export default function createEntity(
@@ -26,10 +26,11 @@ export default function createEntity(
   if ('error' in newEntityResponse)
     return { success: false, message: newEntityResponse.error };
 
+  const parseDb = JSON.parse(JSON.stringify(db));
+
   const newDB = {
-    ...db,
-    [entity + 's']: [newEntityResponse]
-    // [entity + 's']: [...db[entity + 's'], newEntityResponse]
+    ...parseDb,
+    [entity]: [...parseDb[entity], newEntityResponse]
   };
 
   fs.writeFile('db.json', JSON.stringify(newDB, null, 2), error => {

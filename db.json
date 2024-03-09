@@ -1,14 +1,15 @@
 {
   "parents": [
     {
-      "id": "FU265",
-      "name": "juçaro",
-      "lastName": "araujo",
+      "id": "FZ875",
+      "name": "Juçara",
+      "lastName": "Sirlei",
       "phones": [
-        "519969894156"
+        "34567765678",
+        "23456789876543"
       ],
       "emails": [
-        "@"
+        "jucara.sirlei@mail.com"
       ],
       "addresses": [
         {
@@ -17,35 +18,52 @@
           "city": "gti"
         }
       ],
-      "document": "3454",
+      "document": "5432345678765",
       "studentsIds": [
-        "UN287"
+        "GJ958"
       ]
     }
   ],
   "groups": [
     {
-      "id": "1"
-    },
+      "id": "VB307",
+      "code": "3B-M",
+      "teacherId": "QI245",
+      "studentsIds": [
+        "GJ958"
+      ]
+    }
+  ],
+  "students": [
     {
-      "id": "2"
-    },
-    {
-      "id": "3"
+      "id": "GJ958",
+      "name": "Andre",
+      "lastName": "Menezes",
+      "birthDay": "25081992",
+      "parentsIds": [
+        "FZ875"
+      ],
+      "blood": "A-",
+      "medicines": [
+        "omeprazol"
+      ],
+      "registrationDate": "65/76/9876",
+      "document": "5432345678765",
+      "groupId": "VB307"
     }
   ],
   "teachers": [
     {
-      "id": "NI331",
-      "name": "sandra",
-      "lastName": "sei la",
-      "document": "3454",
-      "phone": "519969894156",
-      "email": "@",
-      "hiringDate": "15/153/156",
+      "id": "QI245",
+      "name": "Sandra",
+      "lastName": "Silva",
+      "document": "76543",
+      "phone": "43858339-493-",
+      "email": "sandra.silva@mail.com",
+      "hiringDate": "01/03/1999",
       "specialization": "história",
       "groupsIds": [
-        "1"
+        "VB307"
       ]
     }
   ]

@@ -1,7 +1,7 @@
 export type Allergies = string[];
 export type Blood = 'A+' | 'A-' | 'B+' | 'B-' | 'O+' | 'O-' | 'AB+' | 'AB-';
 export type Medicines = string[];
-export type Entity = 'parent' | 'student' | 'teacher' | 'group';
+export type Entity = 'parents' | 'students' | 'teachers' | 'groups';
 
 export type Address = {
   street: string;
@@ -49,10 +49,6 @@ export interface Teacher {
 export interface Group {
   id: string;
   code: string;
-  // 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9
-  // 'A' | 'B' | 'C' | 'D' | 'E' | 'F' | 'G' | 'H'
-  // '-'
-  // 'M' | 'T' | 'N'
   teacherId: string;
   studentsIds?: string[];
 }

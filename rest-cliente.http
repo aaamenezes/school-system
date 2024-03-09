@@ -7,5 +7,26 @@ POST http://localhost:3000
 Content-Type: application/json
 
 {
-  
+  "entity": "parents",
+  "id": "FZ875",
+      "name": "Juçara",
+      "lastName": "Sirlei",
+      "phones": [
+        "34567765678",
+        "23456789876543"
+      ],
+      "emails": [
+        "jucara.sirlei@mail.com"
+      ],
+      "addresses": [
+        {
+          "street": "josue",
+          "number": 310,
+          "city": "gti"
+        }
+      ],
+      "document": "5432345678765",
+      "studentsIds": [
+        "GJ958"
+      ]
 }
