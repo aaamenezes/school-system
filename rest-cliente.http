@@ -30,3 +30,13 @@ Content-Type: application/json
         "GJ958"
       ]
 }
+
+###
+
+DELETE http://localhost:3000
+Content-Type: application/json
+
+{
+  "entity": "teachers",
+  "id": "QI245"
+}
