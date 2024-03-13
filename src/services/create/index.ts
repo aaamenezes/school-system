@@ -1,17 +1,7 @@
 import fs from 'fs';
 import db from '../../../db.json';
 import type { Entity, Group, Parent, Student, Teacher } from '../../entities';
-import { getNewStudent } from './getNewStudent';
-import { getNewTeacher } from './getNewTeacher';
-import { getNewGroup } from './getNewGroup';
-import { getNewParent } from './getNewParent';
-
-const getNewEntityMap = {
-  students: getNewStudent,
-  teachers: getNewTeacher,
-  groups: getNewGroup,
-  parents: getNewParent
-};
+import { getNewEntityMap } from '../../aux/getNewEntityMap';
 
 export default function createEntity(
   entity: Entity,
@@ -21,7 +11,7 @@ export default function createEntity(
 
   if (!getNewEntity) return { success: false, message: 'entity not found' };
 
-  const newEntityResponse = getNewEntity(body);
+  const newEntityResponse = getNewEntity(body, true);
 
   if ('error' in newEntityResponse)
     return { success: false, message: newEntityResponse.error };

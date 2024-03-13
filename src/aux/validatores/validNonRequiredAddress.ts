@@ -16,10 +16,10 @@ function validAddress(address: Address) {
   return true;
 }
 
-export function validRequireAddresses(addresses: Address[]) {
-  if (!addresses) return false;
+export function validNonRequiredAddresses(addresses: Address[]) {
+  if (!addresses) return true;
   if (!Array.isArray(addresses)) return false;
-  if (addresses.length === 0) return false;
+  if (addresses.length === 0) return true;
 
   const addressesIsValid = addresses.every(validAddress);
 
