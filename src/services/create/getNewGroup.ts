@@ -1,41 +1,43 @@
 import { getRandomGroupCode, getRandomId } from '../../aux/getRandom';
-import {
-  validNonRequiredString,
-  validRequiredString
-} from '../../aux/validatores';
-import { validNonRequiredStudents } from '../../aux/validatores/validNonRequiredStudents';
 import { Group } from '../../entities';
-import { CreateError } from './interfaces';
+import { z } from 'zod';
 
 export function getNewGroup(
-  body: Omit<Group, 'id' | 'code'>,
+  body: Omit<Group, 'id'>,
   validAllProperties: boolean
-): Group | CreateError {
-  const { teacherId, studentsIds } = body;
+): Partial<Group> | { error: unknown } {
+  /**
+   * Melhorar a tipagem do retorno
+   * { error: unknown } ta mto ruim
+   */
+  const { teacherId, studentsIds, code } = body;
 
-  if (validAllProperties) {
-    /**
-     * Validação na criação da entidade
-     * Valida tudo que for obrigatório
-     */
-    if (!validRequiredString(teacherId))
-      return { error: 'teacherId is missing' };
-    if (!validNonRequiredStudents(studentsIds))
-      return { error: 'studentsIds is missing' };
-  } else {
-    /**
-     * Validação na edição da entidade
-     * Tudo é opcional
-     */
-    if (!validNonRequiredString(teacherId))
-      return { error: 'teacherId is missing' };
-    if (!validNonRequiredStudents(studentsIds))
-      return { error: 'studentsIds is missing' };
+  const newGroupSchema = validAllProperties
+    ? z.object({
+        teacherId: z
+          .string()
+          .min(1)
+          .refine(value => !/^\s*$/.test(value)),
+        studentsIds: z.array(z.string()).nonempty().optional()
+      })
+    : z.object({
+        teacherId: z
+          .string()
+          .min(1)
+          .refine(value => !/^\s*$/.test(value))
+          .optional(),
+        studentsIds: z.array(z.string()).nonempty().optional()
+      });
+
+  try {
+    const validatedData = newGroupSchema.parse({ teacherId, studentsIds });
+
+    return {
+      id: getRandomId(),
+      code: validAllProperties ? code : getRandomGroupCode(),
+      ...validatedData
+    };
+  } catch (error) {
+    return { error };
   }
-
-  return {
-    id: getRandomId(),
-    code: getRandomGroupCode(),
-    ...body
-  };
 }
