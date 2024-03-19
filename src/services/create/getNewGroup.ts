@@ -38,6 +38,7 @@ export function getNewGroup(
       ...validatedData
     };
   } catch (error) {
+    console.log(`erro ao criar new group:`, error);
     return { error };
   }
 }

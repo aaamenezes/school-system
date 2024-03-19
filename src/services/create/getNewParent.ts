@@ -1,3 +1,4 @@
+import { z } from 'zod';
 import { getRandomId } from '../../aux/getRandom';
 import {
   validRequiredArrayString,
@@ -15,48 +16,113 @@ import { CreateError } from './interfaces';
 export function getNewParent(
   body: Omit<Parent, 'id'>,
   validAllProperties: boolean
-): Parent | CreateError {
+): Partial<Parent> | { error: unknown } {
   const { name, lastName, phones, emails, addresses, document, studentsIds } =
     body;
 
-  if (validAllProperties) {
-    /**
-     * Validação na criação da entidade
-     * Valida tudo que for obrigatório
-     */
-    if (!validNonRequiredString(name)) return { error: 'name is missing' };
-    if (!validRequiredString(lastName)) return { error: 'lastName is missing' };
-    if (!validRequiredArrayString(phones))
-      return { error: 'phones is missing' };
-    if (!validRequiredArrayString(emails))
-      return { error: 'emails is missing' };
-    if (!validRequiredAddresses(addresses))
-      return { error: 'addresses is missing' };
-    if (!validRequiredString(document)) return { error: 'document is missing' };
-    if (!validRequiredStudents(studentsIds))
-      return { error: 'kids is missing' };
-  } else {
-    /**
-     * Validação na edição da entidade
-     * Tudo é opcional
-     */
-    if (!validNonRequiredString(name)) return { error: 'name is missing' };
-    if (!validNonRequiredString(lastName))
-      return { error: 'lastName is missing' };
-    if (!validNonRequiredArrayString(phones))
-      return { error: 'phones is missing' };
-    if (!validNonRequiredArrayString(emails))
-      return { error: 'emails is missing' };
-    if (!validNonRequiredAddresses(addresses))
-      return { error: 'addresses is missing' };
-    if (!validNonRequiredString(document))
-      return { error: 'document is missing' };
-    if (!validNonRequiredStudents(studentsIds))
-      return { error: 'kids is missing' };
-  }
+  const newParentSchema = validAllProperties
+    ? z.object({
+        name: z
+          .string()
+          .min(1)
+          .refine(value => !/^\s*$/.test(value))
+          .optional(),
+        lastName: z
+          .string()
+          .min(1)
+          .refine(value => !/^\s*$/.test(value)),
+        phones: z
+          .array(
+            z
+              .string()
+              .min(1)
+              .refine(value => !/^\s*$/.test(value))
+          )
+          .nonempty(),
+        emails: z
+          .array(
+            z
+              .string()
+              .min(1)
+              .refine(value => !/^\s*$/.test(value))
+          )
+          .nonempty(),
+        addresses: z.array(
+          z.object({
+            street: z
+              .string()
+              .min(1)
+              .refine(value => !/^\s*$/.test(value)),
+            number: z.number().min(1),
+            city: z
+              .string()
+              .min(1)
+              .refine(value => !/^\s*$/.test(value))
+          })
+        ),
+        document: z
+          .string()
+          .min(1)
+          .refine(value => !/^\s*$/.test(value)),
+        studentsIds: z.array(
+          z
+            .string()
+            .min(1)
+            .refine(value => !/^\s*$/.test(value))
+        )
+      })
+    : z.object({
+        name: z.string().min(1).optional(),
+        lastName: z.string().min(1).optional(),
+        phones: z.array(z.string()).nonempty().optional(),
+        emails: z.array(z.string()).nonempty().optional(),
+        addresses: z
+          .array(
+            z.object({
+              street: z
+                .string()
+                .min(1)
+                .refine(value => !/^\s*$/.test(value)),
+              number: z.number().min(1),
+              city: z
+                .string()
+                .min(1)
+                .refine(value => !/^\s*$/.test(value))
+            })
+          )
+          .optional(),
+        document: z
+          .string()
+          .min(1)
+          .refine(value => !/^\s*$/.test(value))
+          .optional(),
+        studentsIds: z
+          .array(
+            z
+              .string()
+              .min(1)
+              .refine(value => !/^\s*$/.test(value))
+          )
+          .optional()
+      });
 
-  return {
-    id: getRandomId(),
-    ...body
-  };
+  try {
+    const validatedData = newParentSchema.parse({
+      name,
+      lastName,
+      phones,
+      emails,
+      addresses,
+      document,
+      studentsIds
+    });
+
+    return {
+      id: getRandomId(),
+      ...validatedData
+    };
+  } catch (error) {
+    console.log(`erro ao criar new parent:`, error);
+    return { error };
+  }
 }
