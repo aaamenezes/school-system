@@ -1,3 +1,4 @@
+import { z } from 'zod';
 import { getRandomId } from '../../aux/getRandom';
 import {
   validNonRequiredString,
@@ -11,7 +12,7 @@ import { CreateError } from './interfaces';
 export function getNewTeacher(
   body: Omit<Teacher, 'id'>,
   validAllProperties: boolean
-): Teacher | CreateError {
+): Partial<Teacher> | { error: unknown } {
   const {
     name,
     lastName,
@@ -23,44 +24,111 @@ export function getNewTeacher(
     groupsIds
   } = body;
 
-  if (validAllProperties) {
-    /**
-     * Validação na criação da entidade
-     * Valida tudo que for obrigatório
-     */
-    if (!validRequiredString(name)) return { error: 'name is missing' };
-    if (!validRequiredString(lastName)) return { error: 'lastName is missing' };
-    if (!validRequiredString(document)) return { error: 'document is missing' };
-    if (!validRequiredString(phone)) return { error: 'phone is missing' };
-    if (!validRequiredString(email)) return { error: 'email is missing' };
-    if (!validRequiredString(hiringDate))
-      return { error: 'hiringDate is missing' };
-    if (!validNonRequiredString(specialization))
-      return { error: 'specialization is missing' };
-    if (!validRequiredGroups(groupsIds))
-      return { error: 'groupsIds is missing' };
-  } else {
-    /**
-     * Validação na edição da entidade
-     * Tudo é opcional
-     */
-    if (!validNonRequiredString(name)) return { error: 'name is missing' };
-    if (!validNonRequiredString(lastName))
-      return { error: 'lastName is missing' };
-    if (!validNonRequiredString(document))
-      return { error: 'document is missing' };
-    if (!validNonRequiredString(phone)) return { error: 'phone is missing' };
-    if (!validNonRequiredString(email)) return { error: 'email is missing' };
-    if (!validNonRequiredString(hiringDate))
-      return { error: 'hiringDate is missing' };
-    if (!validNonRequiredString(specialization))
-      return { error: 'specialization is missing' };
-    if (!validNonRequiredGroups(groupsIds))
-      return { error: 'groupsIds is missing' };
-  }
+  const newTeacherSchema = validAllProperties
+    ? z.object({
+        name: z
+          .string()
+          .min(1)
+          .refine(value => !/^\s*$/.test(value)),
+        lastName: z
+          .string()
+          .min(1)
+          .refine(value => !/^\s*$/.test(value)),
+        document: z
+          .string()
+          .min(1)
+          .refine(value => !/^\s*$/.test(value)),
+        phone: z
+          .string()
+          .min(1)
+          .refine(value => !/^\s*$/.test(value)),
+        email: z
+          .string()
+          .min(1)
+          .refine(value => !/^\s*$/.test(value)),
+        hiringDate: z
+          .string()
+          .min(1)
+          .refine(value => !/^\s*$/.test(value)),
+        specialization: z
+          .string()
+          .min(1)
+          .refine(value => !/^\s*$/.test(value))
+          .optional(),
+        groupsIds: z
+          .array(
+            z
+              .string()
+              .min(1)
+              .refine(value => !/^\s*$/.test(value))
+          )
+          .nonempty()
+      })
+    : z.object({
+        name: z
+          .string()
+          .min(1)
+          .refine(value => !/^\s*$/.test(value))
+          .optional(),
+        lastName: z
+          .string()
+          .min(1)
+          .refine(value => !/^\s*$/.test(value))
+          .optional(),
+        document: z
+          .string()
+          .min(1)
+          .refine(value => !/^\s*$/.test(value))
+          .optional(),
+        phone: z
+          .string()
+          .min(1)
+          .refine(value => !/^\s*$/.test(value))
+          .optional(),
+        email: z
+          .string()
+          .min(1)
+          .refine(value => !/^\s*$/.test(value))
+          .optional(),
+        hiringDate: z
+          .string()
+          .min(1)
+          .refine(value => !/^\s*$/.test(value))
+          .optional(),
+        specialization: z
+          .string()
+          .min(1)
+          .refine(value => !/^\s*$/.test(value))
+          .optional(),
+        groupsIds: z
+          .array(
+            z
+              .string()
+              .min(1)
+              .refine(value => !/^\s*$/.test(value))
+          )
+          .nonempty()
+          .optional()
+      });
 
-  return {
-    id: getRandomId(),
-    ...body
-  };
+  try {
+    const validatedData = newTeacherSchema.parse({
+      name,
+      lastName,
+      document,
+      phone,
+      email,
+      hiringDate,
+      specialization,
+      groupsIds
+    });
+
+    return {
+      id: getRandomId(),
+      ...validatedData
+    };
+  } catch (error) {
+    console.log(`erro ao criar new teacher:`, error);
+    return { error };
+  }
 }
