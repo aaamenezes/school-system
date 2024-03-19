@@ -1,3 +1,4 @@
+import { z } from 'zod';
 import { getRandomId } from '../../aux/getRandom';
 import {
   validNonRequiredArrayString,
@@ -10,7 +11,12 @@ import {
 import { validNonRequiredBlood } from '../../aux/validatores/validNonRequiredBlood';
 import { validNonRequiredGroups } from '../../aux/validatores/validNonRequiredGroups';
 import { validNonRequiredParents } from '../../aux/validatores/validNonRequiredParents';
-import type { Medicines, Allergies, Student } from '../../entities';
+import {
+  type Medicines,
+  type Allergies,
+  type Student,
+  BLOOD
+} from '../../entities';
 import type { CreateError } from './interfaces';
 
 export function getNewStudent(
@@ -30,49 +36,123 @@ export function getNewStudent(
     groupId
   } = body;
 
-  if (validAllProperties) {
-    /**
-     * Validação na criação da entidade
-     * Valida tudo que for obrigatório
-     */
-    if (!validRequiredString(name)) return { error: 'name is missing' };
-    if (!validRequiredString(lastName)) return { error: 'lastName is missing' };
-    if (!validRequiredString(birthDay)) return { error: 'birthDay is missing' };
-    if (!validRequiredParents(parentsIds))
-      return { error: 'parents is missing' };
-    if (!validNonRequiredArrayString<Allergies>(allergies))
-      return { error: 'allergy is missing' };
-    if (!validRequiredBlood(blood)) return { error: 'blood is missing' };
-    if (!validNonRequiredArrayString<Medicines>(medicines))
-      return { error: 'medicines is missing' };
-    if (!registrationDate) return { error: 'registrationDate is missing' };
-    if (!validNonRequiredString(document))
-      return { error: 'document is missing' };
-    if (!validRequiredGroups([groupId])) return { error: 'groups is missing' };
-  } else {
-    /**
-     * Validação na edição da entidade
-     * Tudo é opcional
-     */
-    if (!validNonRequiredString(name)) return { error: 'name is missing' };
-    if (!validNonRequiredString(lastName))
-      return { error: 'lastName is missing' };
-    if (!validNonRequiredString(birthDay))
-      return { error: 'birthDay is missing' };
-    if (!validNonRequiredParents(parentsIds))
-      return { error: 'parents is missing' };
-    if (!validNonRequiredArrayString<Allergies>(allergies))
-      return { error: 'allergy is missing' };
-    if (!validNonRequiredBlood(blood)) return { error: 'blood is missing' };
-    if (!validNonRequiredArrayString<Medicines>(medicines))
-      return { error: 'medicines is missing' };
-    if (!validNonRequiredString(registrationDate))
-      return { error: 'registrationDate is missing' };
-    if (!validNonRequiredString(document))
-      return { error: 'document is missing' };
-    if (!validNonRequiredGroups([groupId]))
-      return { error: 'groups is missing' };
-  }
+  const newStudentSchema = validAllProperties
+    ? z.object({
+        name: z
+          .string()
+          .min(1)
+          .refine(value => !/^\s*$/.test(value)),
+        lastName: z
+          .string()
+          .min(1)
+          .refine(value => !/^\s*$/.test(value)),
+        birthDay: z
+          .string()
+          .min(1)
+          .refine(value => !/^\s*$/.test(value)),
+        parentsIds: z
+          .array(
+            z
+              .string()
+              .min(1)
+              .refine(value => !/^\s*$/.test(value))
+          )
+          .nonempty(),
+        allergies: z
+          .array(
+            z
+              .string()
+              .min(1)
+              .refine(value => !/^\s*$/.test(value))
+          )
+          .nonempty(),
+        blood: z.string().refine(value => BLOOD.includes(value)),
+        medicines: z
+          .array(
+            z
+              .string()
+              .min(1)
+              .refine(value => !/^\s*$/.test(value))
+          )
+          .nonempty()
+          .optional(),
+        registrationDate: z
+          .string()
+          .min(1)
+          .refine(value => !/^\s*$/.test(value)),
+        document: z
+          .string()
+          .min(1)
+          .refine(value => !/^\s*$/.test(value))
+          .optional(),
+        groupId: z
+          .string()
+          .min(1)
+          .refine(value => !/^\s*$/.test(value))
+      })
+    : z.object({
+        name: z
+          .string()
+          .min(1)
+          .refine(value => !/^\s*$/.test(value))
+          .optional(),
+        lastName: z
+          .string()
+          .min(1)
+          .refine(value => !/^\s*$/.test(value))
+          .optional(),
+        birthDay: z
+          .string()
+          .min(1)
+          .refine(value => !/^\s*$/.test(value))
+          .optional(),
+        parentsIds: z
+          .array(
+            z
+              .string()
+              .min(1)
+              .refine(value => !/^\s*$/.test(value))
+          )
+          .nonempty()
+          .optional(),
+        allergies: z
+          .array(
+            z
+              .string()
+              .min(1)
+              .refine(value => !/^\s*$/.test(value))
+          )
+          .nonempty()
+          .optional(),
+        blood: z
+          .string()
+          .refine(value => BLOOD.includes(value))
+          .optional(),
+        medicines: z
+          .array(
+            z
+              .string()
+              .min(1)
+              .refine(value => !/^\s*$/.test(value))
+          )
+          .nonempty()
+          .optional(),
+        registrationDate: z
+          .string()
+          .min(1)
+          .refine(value => !/^\s*$/.test(value))
+          .optional(),
+        document: z
+          .string()
+          .min(1)
+          .refine(value => !/^\s*$/.test(value))
+          .optional(),
+        groupId: z
+          .string()
+          .min(1)
+          .refine(value => !/^\s*$/.test(value))
+          .optional()
+      });
 
   return {
     id: getRandomId(),

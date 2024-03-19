@@ -1,5 +1,6 @@
 export type Allergies = string[];
 export type Blood = 'A+' | 'A-' | 'B+' | 'B-' | 'O+' | 'O-' | 'AB+' | 'AB-';
+export const BLOOD = ['A+', 'A-', 'B+', 'B-', 'O+', 'O-', 'AB+', 'AB-'];
 export type Medicines = string[];
 export type Entity = 'parents' | 'students' | 'teachers' | 'groups';
 
