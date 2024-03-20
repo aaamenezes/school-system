@@ -22,15 +22,77 @@
       "studentsIds": [
         "GJ958"
       ]
+    },
+    {
+      "id": "XY647",
+      "name": "Ana",
+      "lastName": "Silva",
+      "phones": [
+        "(51) 1234-5678"
+      ],
+      "emails": [
+        "ana.silva@example.com"
+      ],
+      "addresses": [
+        {
+          "street": "Rua A",
+          "number": 123,
+          "city": "Porto Alegre"
+        }
+      ],
+      "document": "1234567890",
+      "studentsIds": [
+        "GJ958",
+        "OB088"
+      ]
+    },
+    {
+      "id": "LK362",
+      "name": "João",
+      "lastName": "Santos",
+      "phones": [
+        "(51) 9876-5432"
+      ],
+      "emails": [
+        "joao.santos@example.com"
+      ],
+      "addresses": [
+        {
+          "street": "Rua B",
+          "number": 456,
+          "city": "Canoas"
+        }
+      ],
+      "document": "0987654321",
+      "studentsIds": [
+        "IS530",
+        "GJ958"
+      ]
     }
   ],
   "groups": [
     {
-      "id": "RW826",
-      "code": "0G-T",
-      "teacherId": "QI245",
+      "id": "RD623",
+      "code": "7E-T",
+      "teacherId": "RW826",
       "studentsIds": [
-        "GJ958"
+        "GJ958",
+        "OB088"
+      ]
+    },
+    {
+      "id": "UT819",
+      "code": "7E-T",
+      "teacherId": "SG987"
+    },
+    {
+      "id": "OO146",
+      "code": "0F-N",
+      "teacherId": "II412",
+      "studentsIds": [
+        "GJ958",
+        "OB088",
+        "IS530"
       ]
     }
   ],
@@ -50,20 +112,80 @@
       "registrationDate": "65/76/9876",
       "document": "5432345678765",
       "groupId": "VB307"
+    },
+    {
+      "id": "OB088",
+      "name": "João",
+      "lastName": "Silva",
+      "birthDay": "1999-05-15",
+      "parentsIds": [
+        "FZ875"
+      ],
+      "allergies": [
+        "Amendoim",
+        "Poeira"
+      ],
+      "blood": "A+",
+      "medicines": [
+        "Antialérgico"
+      ],
+      "registrationDate": "2023-09-10",
+      "document": "1234567890",
+      "groupId": "RW826"
+    },
+    {
+      "id": "IS530",
+      "name": "Maria",
+      "lastName": "Santos",
+      "birthDay": "2002-11-20",
+      "parentsIds": [
+        "FZ875"
+      ],
+      "blood": "O-",
+      "registrationDate": "2023-09-11",
+      "document": "0987654321",
+      "groupId": "RD623"
     }
   ],
   "teachers": [
     {
-      "id": "QI245",
-      "name": "Sandra",
+      "id": "SC755",
+      "name": "Carlos",
       "lastName": "Silva",
-      "document": "76543",
-      "phone": "43858339-493-",
-      "email": "sandra.silva@mail.com",
-      "hiringDate": "01/03/1999",
-      "specialization": "história",
+      "document": "1234567890",
+      "phone": "(51) 1234-5678",
+      "email": "carlos.silva@example.com",
+      "hiringDate": "2020-03-15",
+      "specialization": "Matemática",
       "groupsIds": [
-        "VB307"
+        "RW826"
+      ]
+    },
+    {
+      "id": "SG987",
+      "name": "Carlos",
+      "lastName": "Silva",
+      "document": "1234567890",
+      "phone": "(51) 1234-5678",
+      "email": "carlos.silva@example.com",
+      "hiringDate": "2020-03-15",
+      "specialization": "Matemática",
+      "groupsIds": [
+        "RD623"
+      ]
+    },
+    {
+      "id": "II412",
+      "name": "Ana",
+      "lastName": "Santos",
+      "document": "0987654321",
+      "phone": "(51) 9876-5432",
+      "email": "ana.santos@example.com",
+      "hiringDate": "2018-07-20",
+      "specialization": "História",
+      "groupsIds": [
+        "UT819",
+        "RD623"
       ]
     }
   ]
