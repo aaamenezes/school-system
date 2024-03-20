@@ -34,7 +34,7 @@ export function getNewGroup(
 
     return {
       id: getRandomId(),
-      code: validAllProperties ? code : getRandomGroupCode(),
+      code: validAllProperties ? getRandomGroupCode() : code,
       ...validatedData
     };
   } catch (error) {

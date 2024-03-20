@@ -3,10 +3,7 @@ Content-Type: application/json
 
 {
   "entity": "groups",
-  "teacherId": "QI245",
-  "studentsIds": [
-    "GJ958"
-  ]
+  "teacherId": "SG987"
 }
 
 ###
@@ -29,6 +26,6 @@ DELETE http://localhost:3000
 Content-Type: application/json
 
 {
-  "entity": "teachers",
-  "id": "QI245"
+  "entity": "groups",
+  "id": "GY161"
 }

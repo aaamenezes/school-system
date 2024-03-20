@@ -22,7 +22,7 @@ import type { CreateError } from './interfaces';
 export function getNewStudent(
   body: Omit<Student, 'id'>,
   validAllProperties: boolean
-): Student | CreateError {
+): Partial<Student> | { error: unknown } {
   const {
     name,
     lastName,
@@ -154,8 +154,35 @@ export function getNewStudent(
           .optional()
       });
 
-  return {
-    id: getRandomId(),
-    ...body
-  };
+  try {
+    const validatedData = newStudentSchema.parse({
+      name,
+      lastName,
+      birthDay,
+      parentsIds,
+      allergies,
+      blood,
+      medicines,
+      registrationDate,
+      document,
+      groupId
+    });
+
+    return {
+      id: getRandomId(),
+      name,
+      lastName,
+      birthDay,
+      parentsIds,
+      allergies,
+      blood,
+      medicines,
+      registrationDate,
+      document,
+      groupId
+    };
+  } catch (error) {
+    console.log(`erro ao criar new teacher:`, error);
+    return { error };
+  }
 }
