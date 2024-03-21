@@ -415,3 +415,51 @@ Gere um JSON com uma array de 10 objetos. Cada objeto contém propriedades de um
 - email (obrigatório): string
 - data de contratação (obrigatório): string
 - especialização: string
+
+////////////////////////////////////////////////////////////////////////////////
+
+res.send({
+  body: req.body,
+  params: req.params,
+  query: req.query,
+  header: req.header,
+  baseUrl: req.baseUrl,
+  hostname: req.hostname,
+  originalUrl: req.originalUrl,
+  path: req.path,
+  resume: req.resume,
+  route: req.route
+});
+
+//
+
+{
+  "body": {},
+  "params": {},
+  "query": {
+    "chave": "valor",
+    "nome": "andre",
+    "idade": "31"
+  },
+  "baseUrl": "",
+  "hostname": "localhost",
+  "originalUrl": "/?chave=valor&nome=andre&idade=31",
+  "path": "/",
+  "route": {
+    "path": "/",
+    "stack": [
+      {
+        "name": "<anonymous>",
+        "keys": [],
+        "regexp": {
+          "fast_star": false,
+          "fast_slash": false
+        },
+        "method": "get"
+      }
+    ],
+    "methods": {
+      "get": true
+    }
+  }
+}
