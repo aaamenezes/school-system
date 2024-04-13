@@ -6,84 +6,6 @@ ALUNOS
   "entity": "students",
   "parentsIds": [""],
   "groupId": "",
-  "name": "Pedro",
-  "lastName": "Ferreira",
-  "birthDay": "2001-03-05",
-  "allergies": [
-    "Leite"
-  ],
-  "blood": "B+",
-  "registrationDate": "2023-09-12"
-}
-{
-  "entity": "students",
-  "parentsIds": [""],
-  "groupId": "",
-  "name": "Ana",
-  "lastName": "Oliveira",
-  "birthDay": "2003-07-30",
-  "blood": "AB-",
-  "medicines": [
-    "Inalador"
-  ],
-  "registrationDate": "2023-09-13",
-  "document": "1357924680"
-}
-{
-  "entity": "students",
-  "parentsIds": [""],
-  "groupId": "",
-  "name": "Carlos",
-  "lastName": "Rodrigues",
-  "birthDay": "2000-01-10",
-  "blood": "A-",
-  "registrationDate": "2023-09-14"
-}
-{
-  "entity": "students",
-  "parentsIds": [""],
-  "groupId": "",
-  "name": "Juliana",
-  "lastName": "Costa",
-  "birthDay": "2004-09-25",
-  "allergies": [
-    "Penicilina"
-  ],
-  "blood": "O+",
-  "medicines": [
-    "Antibiótico"
-  ],
-  "registrationDate": "2023-09-15",
-  "document": "2468013579"
-}
-{
-  "entity": "students",
-  "parentsIds": [""],
-  "groupId": "",
-  "name": "Lucas",
-  "lastName": "Martins",
-  "birthDay": "1998-12-03",
-  "allergies": [
-    "Frutos do mar"
-  ],
-  "blood": "B-",
-  "registrationDate": "2023-09-16",
-  "document": "9876543210"
-}
-{
-  "entity": "students",
-  "parentsIds": [""],
-  "groupId": "",
-  "name": "Mariana",
-  "lastName": "Pereira",
-  "birthDay": "2005-06-08",
-  "blood": "AB+",
-  "registrationDate": "2023-09-17"
-}
-{
-  "entity": "students",
-  "parentsIds": [""],
-  "groupId": "",
   "name": "Gustavo",
   "lastName": "Gomes",
   "birthDay": "2002-02-18",
@@ -116,126 +38,6 @@ ALUNOS
 
 RESPONSÁVEL
 
-{
-  "entity": "parents",
-  "studentsIds": [""],
-  "name": "Pedro",
-  "lastName": "Oliveira",
-  "phones": [
-    "(51) 2468-1357"
-  ],
-  "emails": [
-    "pedro.oliveira@example.com"
-  ],
-  "addresses": [
-    {
-      "street": "Rua C",
-      "number": 789,
-      "city": "Gravataí"
-    }
-  ],
-  "document": "1357924680"
-}
-{
-  "entity": "parents",
-  "studentsIds": [""],
-  "name": "Mariana",
-  "lastName": "Ferreira",
-  "phones": [
-    "(51) 3579-2468"
-  ],
-  "emails": [
-    "mariana.ferreira@example.com"
-  ],
-  "addresses": [
-    {
-      "street": "Rua D",
-      "number": 1011,
-      "city": "Alvorada"
-    }
-  ],
-  "document": "2468013579"
-}
-{
-  "entity": "parents",
-  "studentsIds": [""],
-  "name": "Lucas",
-  "lastName": "Costa",
-  "phones": [
-    "(51) 6543-2109"
-  ],
-  "emails": [
-    "lucas.costa@example.com"
-  ],
-  "addresses": [
-    {
-      "street": "Rua E",
-      "number": 1213,
-      "city": "São Leopoldo"
-    }
-  ],
-  "document": "9876543210"
-}
-{
-  "entity": "parents",
-  "studentsIds": [""],
-  "name": "Juliana",
-  "lastName": "Martins",
-  "phones": [
-    "(51) 0123-4567"
-  ],
-  "emails": [
-    "juliana.martins@example.com"
-  ],
-  "addresses": [
-    {
-      "street": "Rua F",
-      "number": 1415,
-      "city": "Novo Hamburgo"
-    }
-  ],
-  "document": "0123456789"
-}
-{
-  "entity": "parents",
-  "studentsIds": [""],
-  "name": "Gustavo",
-  "lastName": "Pereira",
-  "phones": [
-    "(51) 8901-2345"
-  ],
-  "emails": [
-    "gustavo.pereira@example.com"
-  ],
-  "addresses": [
-    {
-      "street": "Rua G",
-      "number": 1617,
-      "city": "Sapucaia do Sul"
-    }
-  ],
-  "document": "5678901234"
-}
-{
-  "entity": "parents",
-  "studentsIds": [""],
-  "name": "Camila",
-  "lastName": "Almeida",
-  "phones": [
-    "(51) 3456-7890"
-  ],
-  "emails": [
-    "camila.almeida@example.com"
-  ],
-  "addresses": [
-    {
-      "street": "Rua H",
-      "number": 1819,
-      "city": "Esteio"
-    }
-  ],
-  "document": "2345678901"
-}
 {
   "entity": "parents",
   "studentsIds": [""],
@@ -284,72 +86,6 @@ PROFESSORES
 {
   "entity": "teachers",
   "groupsIds": [""],
-  "name": "Pedro",
-  "lastName": "Oliveira",
-  "document": "1357924680",
-  "phone": "(51) 2468-1357",
-  "email": "pedro.oliveira@example.com",
-  "hiringDate": "2019-05-10",
-  "specialization": "Física"
-}
-{
-  "entity": "teachers",
-  "groupsIds": [""],
-  "name": "Mariana",
-  "lastName": "Ferreira",
-  "document": "2468013579",
-  "phone": "(51) 3579-2468",
-  "email": "mariana.ferreira@example.com",
-  "hiringDate": "2021-01-08",
-  "specialization": "Biologia"
-}
-{
-  "entity": "teachers",
-  "groupsIds": [""],
-  "name": "Lucas",
-  "lastName": "Costa",
-  "document": "9876543210",
-  "phone": "(51) 6543-2109",
-  "email": "lucas.costa@example.com",
-  "hiringDate": "2017-11-25",
-  "specialization": "Química"
-}
-{
-  "entity": "teachers",
-  "groupsIds": [""],
-  "name": "Juliana",
-  "lastName": "Martins",
-  "document": "0123456789",
-  "phone": "(51) 0123-4567",
-  "email": "juliana.martins@example.com",
-  "hiringDate": "2019-09-30",
-  "specialization": "Português"
-}
-{
-  "entity": "teachers",
-  "groupsIds": [""],
-  "name": "Gustavo",
-  "lastName": "Pereira",
-  "document": "5678901234",
-  "phone": "(51) 8901-2345",
-  "email": "gustavo.pereira@example.com",
-  "hiringDate": "2018-03-12",
-  "specialization": "Geografia"
-}
-{
-  "entity": "teachers",
-  "groupsIds": [""],
-  "name": "Camila",
-  "lastName": "Almeida",
-  "document": "2345678901",
-  "phone": "(51) 3456-7890",
-  "email": "camila.almeida@example.com",
-  "hiringDate": "2020-08-05",
-  "specialization": "Inglês"
-}
-{
-  "entity": "teachers",
-  "groupsIds": [""],
   "name": "Fernanda",
   "lastName": "Gomes",
   "document": "7890123456",
@@ -368,6 +104,16 @@ PROFESSORES
   "email": "rafael.rodrigues@example.com",
   "hiringDate": "2022-02-18",
   "specialization": "Artes"
+}
+
+////////////////////////////////////////////////////////////////////////////////
+
+GROUPS
+
+{
+  "entity": "groups",
+  "teacherId": "",
+  "studentsIds": [""]
 }
 
 ////////////////////////////////////////////////////////////////////////////////

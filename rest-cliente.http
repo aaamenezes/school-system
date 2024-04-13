@@ -1,11 +1,7 @@
 POST http://localhost:3000
 Content-Type: application/json
 
-{
-  "entity": "groups",
-  "teacherId": "II412",
-  "studentsIds": ["GJ958", "OB088", "IS530"]
-}
+{}
 
 ###
 

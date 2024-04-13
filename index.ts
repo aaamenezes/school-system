@@ -32,46 +32,17 @@ app.get('/:entity?', (req: Req, res: Res) => {
   const { entity } = req.params;
 
   if (!entity) {
-    /**
-     * TODO
-     * O "res.send" cheio de "length" é apenas teste
-     * Remover ele no futuro e deixar só a linha comentada
-     */
-
-    // res.send(db);
-    res.send({
-      parentsLength: db.parents.length,
-      studentsLength: db.students.length,
-      groupsLength: db.groups.length,
-      teachersLength: db.teachers.length,
-      ...db
-    });
+    res.send(db);
     return;
   }
 
   if (entities.includes(entity)) {
-    res.send({ data: 'hue' });
+    res.send(db[entity]);
     return;
   }
 
   res.send({ error: 'entity não encontrado' });
 });
-
-// app.get('/students', (req: Req, res: Res) => {
-//   return readEntity().students;
-// });
-
-// app.get('/groups', (req: Req, res: Res) => {
-//   return readEntity().groups;
-// });
-
-// app.get('/teachers', (req: Req, res: Res) => {
-//   return readEntity().teachers;
-// });
-
-// app.get('/parents', (req: Req, res: Res) => {
-//   return readEntity().parents;
-// });
 
 app.put('/', (req: Req, res: Res) => {
   const { entity, id, ...body } = req.body;
