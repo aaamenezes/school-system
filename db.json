@@ -412,6 +412,22 @@
       "blood": "AB+",
       "registrationDate": "2023-09-17",
       "groupId": "RJ185"
+    },
+    {
+      "id": "RF348",
+      "name": "Gustavo",
+      "lastName": "Gomes",
+      "birthDay": "2002-02-18",
+      "parentsIds": [
+        "FZ875"
+      ],
+      "blood": "O+",
+      "medicines": [
+        "Analgésico"
+      ],
+      "registrationDate": "2023-09-18",
+      "document": "0123456789",
+      "groupId": "WB737"
     }
   ],
   "teachers": [

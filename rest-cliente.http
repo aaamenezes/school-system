@@ -1,4 +1,4 @@
-POST http://localhost:3000
+POST http://localhost:3000/
 Content-Type: application/json
 
 {}
@@ -6,6 +6,26 @@ Content-Type: application/json
 ###
 
 GET http://localhost:3000
+Content-Type: application/json
+
+###
+
+GET http://localhost:3000/parents
+Content-Type: application/json
+
+###
+
+GET http://localhost:3000/groups
+Content-Type: application/json
+
+###
+
+GET http://localhost:3000/students
+Content-Type: application/json
+
+###
+
+GET http://localhost:3000/teachers
 Content-Type: application/json
 
 ###

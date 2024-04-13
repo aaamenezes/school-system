@@ -13,16 +13,22 @@ import readEntity from './src/services/read';
 import createEntity from './src/services/create';
 import deleteEntity from './src/services/delete';
 import updateEntity from './src/services/update';
-import { entities } from './src/entities';
+import { Entity, entities } from './src/entities';
 
 const app = express();
 const port = 3000;
 
 app.use(bodyParser.json());
 
-app.post('/', (req: Req, res: Res) => {
-  const { entity, ...body } = req.body;
-  const { success, message } = createEntity(entity, body);
+app.post('/:entity', (req: Req, res: Res) => {
+  const { entity } = req.params;
+
+  if (!entities.includes(entity)) {
+    res.send({ success: false, message: 'entity not found' });
+  }
+
+  const { body } = req;
+  const { success, message } = createEntity(entity as Entity, body);
   res.send({ success, message });
 });
 

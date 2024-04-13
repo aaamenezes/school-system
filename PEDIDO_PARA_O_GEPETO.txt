@@ -3,21 +3,6 @@
 ALUNOS
 
 {
-  "entity": "students",
-  "parentsIds": [""],
-  "groupId": "",
-  "name": "Gustavo",
-  "lastName": "Gomes",
-  "birthDay": "2002-02-18",
-  "blood": "O+",
-  "medicines": [
-    "Analgésico"
-  ],
-  "registrationDate": "2023-09-18",
-  "document": "0123456789"
-}
-{
-  "entity": "students",
   "parentsIds": [""],
   "groupId": "",
   "name": "Camila",
@@ -39,7 +24,6 @@ ALUNOS
 RESPONSÁVEL
 
 {
-  "entity": "parents",
   "studentsIds": [""],
   "name": "Fernanda",
   "lastName": "Gomes",
@@ -59,7 +43,6 @@ RESPONSÁVEL
   "document": "7890123456"
 }
 {
-  "entity": "parents",
   "studentsIds": [""],
   "name": "Rafael",
   "lastName": "Rodrigues",
@@ -84,7 +67,6 @@ RESPONSÁVEL
 PROFESSORES
 
 {
-  "entity": "teachers",
   "groupsIds": [""],
   "name": "Fernanda",
   "lastName": "Gomes",
@@ -95,7 +77,6 @@ PROFESSORES
   "specialization": "Educação Física"
 }
 {
-  "entity": "teachers",
   "groupsIds": [""],
   "name": "Rafael",
   "lastName": "Rodrigues",
@@ -111,7 +92,6 @@ PROFESSORES
 GROUPS
 
 {
-  "entity": "groups",
   "teacherId": "",
   "studentsIds": [""]
 }
