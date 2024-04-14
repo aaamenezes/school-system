@@ -40,10 +40,66 @@ Content-Type: application/json
 
 ###
 
-DELETE http://localhost:3000
+PUT http://localhost:3000/parents
 Content-Type: application/json
 
 {
-  "entity": "groups",
-  "id": "GY161"
+  "id": "TN560",
+  "lastName": "Menezes"
+}
+
+###
+
+PUT http://localhost:3000/teachers
+Content-Type: application/json
+
+{
+  "id": "TN560",
+  "lastName": "Menezes"
+}
+
+###
+
+PUT http://localhost:3000/groups
+Content-Type: application/json
+
+{
+  "id": "TN560",
+  "lastName": "Menezes"
+}
+
+###
+
+DELETE http://localhost:3000/groups
+Content-Type: application/json
+
+{
+  "id": "RD623"
+}
+
+###
+
+DELETE http://localhost:3000/students
+Content-Type: application/json
+
+{
+  "id": "RD623"
+}
+
+###
+
+DELETE http://localhost:3000/teachers
+Content-Type: application/json
+
+{
+  "id": "RD623"
+}
+
+###
+
+DELETE http://localhost:3000/parents
+Content-Type: application/json
+
+{
+  "id": "RD623"
 }

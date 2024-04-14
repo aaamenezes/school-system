@@ -8,6 +8,12 @@ export default function deleteEntity(id: string, entity: Entity) {
   const parseDb = JSON.parse(JSON.stringify(db));
 
   const entityFromDb: SomeEntity[] = parseDb[entity];
+
+  /**
+   * Essa validação abaixo está duplicada
+   * Ver arquivo index.js app.delete(...)
+   * Lá já tem uma verificação se a entidade existe
+   */
   if (!entityFromDb) {
     return {
       success: false,
@@ -23,12 +29,12 @@ export default function deleteEntity(id: string, entity: Entity) {
     };
   }
 
-  const newDB = {
+  const newDb = {
     ...parseDb,
     [entity]: entityFromDb.filter((item: SomeEntity) => item.id !== id)
   };
 
-  fs.writeFile('db.json', JSON.stringify(newDB, null, 2), error => {
+  fs.writeFile('db.json', JSON.stringify(newDb, null, 2), error => {
     if (error) throw new Error(`Erro ao deletar ${entity}: ${error}`);
     console.log(`${entity} deletado com sucesso!`);
   });

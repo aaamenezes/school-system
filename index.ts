@@ -3,7 +3,6 @@
  * https://blog.rocketseat.com.br/como-utilizar-e-validar-variaveis-de-ambiente-em-typescript-com-zod/
  * https://expressjs.com/en/starter/basic-routing.html
  * https://www.youtube.com/watch?v=5CqfzNdaqKw&ab_channel=MarioSouto-DevSoutinho
- * Corrigir rotas, criar /students, /groups, etc...
  */
 
 import express, { Request as Req, Response as Res } from 'express';
@@ -64,9 +63,16 @@ app.put('/:entity', (req: Req, res: Res) => {
   res.send({ success, message });
 });
 
-app.delete('/', (req: Req, res: Res) => {
-  const { id, entity } = req.body;
-  const { success, message } = deleteEntity(id, entity);
+app.delete('/:entity', (req: Req, res: Res) => {
+  const { entity } = req.params;
+
+  if (!entities.includes(entity)) {
+    res.send({ success: false, message: `entity ${entity} not found` });
+    return;
+  }
+
+  const { id } = req.body;
+  const { success, message } = deleteEntity(id, entity as Entity);
   res.send({ success, message });
 });
 
