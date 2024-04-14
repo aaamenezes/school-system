@@ -1,20 +1,9 @@
 import { z } from 'zod';
 import { getRandomId } from '../../aux/getRandom';
-import {
-  validRequiredArrayString,
-  validRequiredAddresses,
-  validNonRequiredString,
-  validRequiredStudents,
-  validRequiredString,
-  validNonRequiredArrayString
-} from '../../aux/validatores';
-import { validNonRequiredAddresses } from '../../aux/validatores/validNonRequiredAddress';
-import { validNonRequiredStudents } from '../../aux/validatores/validNonRequiredStudents';
 import { Parent } from '../../entities';
-import { CreateError } from './interfaces';
 
 export function getNewParent(
-  body: Omit<Parent, 'id'>,
+  body: Parent,
   validAllProperties: boolean
 ): Partial<Parent> | { error: unknown } {
   const { name, lastName, phones, emails, addresses, document, studentsIds } =
@@ -118,7 +107,7 @@ export function getNewParent(
     });
 
     return {
-      id: getRandomId(),
+      id: validAllProperties ? getRandomId() : body.id,
       ...validatedData
     };
   } catch (error) {

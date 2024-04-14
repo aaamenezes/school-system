@@ -24,7 +24,8 @@ app.post('/:entity', (req: Req, res: Res) => {
   const { entity } = req.params;
 
   if (!entities.includes(entity)) {
-    res.send({ success: false, message: 'entity not found' });
+    res.send({ success: false, message: `entity ${entity} not found` });
+    return;
   }
 
   const { body } = req;
@@ -42,17 +43,24 @@ app.get('/:entity?', (req: Req, res: Res) => {
     return;
   }
 
-  if (entities.includes(entity)) {
-    res.send(db[entity]);
+  if (!entities.includes(entity)) {
+    res.send({ success: false, message: `entity ${entity} not found` });
     return;
   }
 
-  res.send({ error: 'entity não encontrado' });
+  res.send(db[entity]);
 });
 
-app.put('/', (req: Req, res: Res) => {
-  const { entity, id, ...body } = req.body;
-  const { success, message } = updateEntity(entity, id, body);
+app.put('/:entity', (req: Req, res: Res) => {
+  const { entity } = req.params;
+
+  if (!entities.includes(entity)) {
+    res.send({ success: false, message: `entity ${entity} not found` });
+    return;
+  }
+
+  const { id, ...body } = req.body;
+  const { success, message } = updateEntity(entity as Entity, id, body);
   res.send({ success, message });
 });
 

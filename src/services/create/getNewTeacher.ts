@@ -1,16 +1,9 @@
 import { z } from 'zod';
 import { getRandomId } from '../../aux/getRandom';
-import {
-  validNonRequiredString,
-  validRequiredGroups,
-  validRequiredString
-} from '../../aux/validatores';
-import { validNonRequiredGroups } from '../../aux/validatores/validNonRequiredGroups';
 import { Teacher } from '../../entities';
-import { CreateError } from './interfaces';
 
 export function getNewTeacher(
-  body: Omit<Teacher, 'id'>,
+  body: Teacher,
   validAllProperties: boolean
 ): Partial<Teacher> | { error: unknown } {
   const {
@@ -124,7 +117,7 @@ export function getNewTeacher(
     });
 
     return {
-      id: getRandomId(),
+      id: validAllProperties ? getRandomId() : body.id,
       ...validatedData
     };
   } catch (error) {

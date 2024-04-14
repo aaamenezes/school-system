@@ -1,26 +1,9 @@
 import { z } from 'zod';
 import { getRandomId } from '../../aux/getRandom';
-import {
-  validNonRequiredArrayString,
-  validRequiredBlood,
-  validNonRequiredString,
-  validRequiredGroups,
-  validRequiredParents,
-  validRequiredString
-} from '../../aux/validatores';
-import { validNonRequiredBlood } from '../../aux/validatores/validNonRequiredBlood';
-import { validNonRequiredGroups } from '../../aux/validatores/validNonRequiredGroups';
-import { validNonRequiredParents } from '../../aux/validatores/validNonRequiredParents';
-import {
-  type Medicines,
-  type Allergies,
-  type Student,
-  BLOOD
-} from '../../entities';
-import type { CreateError } from './interfaces';
+import { type Student, BLOOD } from '../../entities';
 
 export function getNewStudent(
-  body: Omit<Student, 'id'>,
+  body: Student,
   validAllProperties: boolean
 ): Partial<Student> | { error: unknown } {
   const {
@@ -170,7 +153,7 @@ export function getNewStudent(
     });
 
     return {
-      id: getRandomId(),
+      id: validAllProperties ? getRandomId() : body.id,
       name,
       lastName,
       birthDay,

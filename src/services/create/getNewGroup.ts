@@ -3,7 +3,7 @@ import { Group } from '../../entities';
 import { z } from 'zod';
 
 export function getNewGroup(
-  body: Omit<Group, 'id'>,
+  body: Group,
   validAllProperties: boolean
 ): Partial<Group> | { error: unknown } {
   /**
@@ -33,7 +33,7 @@ export function getNewGroup(
     const validatedData = newGroupSchema.parse({ teacherId, studentsIds });
 
     return {
-      id: getRandomId(),
+      id: validAllProperties ? getRandomId() : body.id,
       code: validAllProperties ? getRandomGroupCode() : code,
       ...validatedData
     };

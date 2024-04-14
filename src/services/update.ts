@@ -1,3 +1,4 @@
+import fs from 'fs';
 import { Entity, Group, Parent, Student, Teacher } from '../entities';
 import db from '../../db.json';
 import { getNewEntityMap } from '../aux/getNewEntityMap';
@@ -11,6 +12,12 @@ export default function updateEntity(
 ) {
   // verificar se a entidade existe
   const getNewEntity = getNewEntityMap[entity];
+
+  /**
+   * Essa validação abaixo está duplicada
+   * Ver arquivo index.js app.put(...)
+   * Lá já tem uma verificação se a entidade existe
+   */
   if (!getNewEntity) {
     return {
       success: false,
@@ -33,25 +40,33 @@ export default function updateEntity(
     };
   }
 
-  // criar entidade com novas propriedades
-  /**
-   * TODO aqui vai dar problema
-   * o getNewEntity vai validar tudo
-   * mas na verdade eu devo permitir que algumas propriedades faltem
-   * pois vou só atualizar algumas
-   * e não preciso atualizar todas
-   */
-  const entityWithNewProperties = getNewEntity(body, false);
+  // Receber entidade com novas propriedades e já eliminar o que for undefined
+  const entityWithNewProperties: Record<string, unknown> = {};
+  Object.entries(getNewEntity(body, false)).forEach(entry => {
+    if (entry[1]) {
+      entityWithNewProperties[entry[0]] = entry[1];
+    }
+  });
 
-  // fazer merge do entity existente com os dados da requisição
+  // fazer merge do entity existente com o body da requisição
   const updatedEntity = {
     ...entityToUpdate,
     ...entityWithNewProperties
   };
 
-  // substituir o entity antido no db pelo atualizado
+  // substituir o entity antigo no db pelo atualizado
+  const newDb = {
+    ...parseDb,
+    [entity]: parseDb[entity].map((entity: SomeEntity) =>
+      entity.id === id ? updatedEntity : entity
+    )
+  };
 
   // salvar o db
+  fs.writeFile('db.json', JSON.stringify(newDb, null, 2), error => {
+    if (error) throw new Error(`Erro ao atualizar ${entity}: ${error}`);
+    console.log(`${entity} atualizado com sucesso!`);
+  });
 
   // responder
   return {

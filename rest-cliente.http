@@ -20,21 +20,22 @@ Content-Type: application/json
 
 ###
 
-GET http://localhost:3000/students
-Content-Type: application/json
-
-###
-
 GET http://localhost:3000/teachers
 Content-Type: application/json
 
 ###
 
-PUT http://localhost:3000
+GET http://localhost:3000/students
+Content-Type: application/json
+
+###
+
+PUT http://localhost:3000/students
 Content-Type: application/json
 
 {
-  
+  "id": "TN560",
+  "lastName": "Menezes"
 }
 
 ###

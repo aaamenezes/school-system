@@ -18,12 +18,12 @@ export default function createEntity(
 
   const parseDb = JSON.parse(JSON.stringify(db));
 
-  const newDB = {
+  const neDb = {
     ...parseDb,
     [entity]: [...parseDb[entity], newEntityResponse]
   };
 
-  fs.writeFile('db.json', JSON.stringify(newDB, null, 2), error => {
+  fs.writeFile('db.json', JSON.stringify(neDb, null, 2), error => {
     if (error) throw new Error(`Erro ao salvar novo ${entity}: ${error}`);
     console.log(`${entity} criado com sucesso!`);
   });
