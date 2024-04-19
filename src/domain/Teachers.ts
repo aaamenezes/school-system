@@ -1,8 +1,19 @@
 import { z } from 'zod';
-import { getRandomId } from '../../aux/getRandom';
-import { Teacher } from '../../domain';
+import { getRandomId } from '../aux/getRandom';
 
-export function getNewTeacher(
+export interface Teacher {
+  id: string;
+  name: string;
+  lastName: string;
+  document: string;
+  phone: string;
+  email: string;
+  hiringDate: string;
+  specialization?: string;
+  groupsIds: string[];
+}
+
+export function Teacher(
   body: Teacher,
   validAllProperties: boolean
 ): Partial<Teacher> | { error: unknown } {

@@ -1,8 +1,18 @@
 /**
- * ZOD ou JSON Schema
- * https://blog.rocketseat.com.br/como-utilizar-e-validar-variaveis-de-ambiente-em-typescript-com-zod/
- * https://expressjs.com/en/starter/basic-routing.html
- * https://www.youtube.com/watch?v=5CqfzNdaqKw&ab_channel=MarioSouto-DevSoutinho
+ * https://www.youtube.com/watch?v=OoTJkhRPxGg&ab_channel=LucasSantos
+ *
+ * Rotas para:
+ *
+ * PUT
+ * Associar ou desassociar​ um alunos à pais
+ * Associar ou desassociar​ alunos e professores à turmas
+ *
+ * GET
+ * alunos de uma turma
+ * turmas de um professor
+ * filhos(as) de um responsável
+ * responsáveis por um estudante
+ * alunos de um professor
  */
 
 import express, { Request as Req, Response as Res } from 'express';
@@ -12,7 +22,8 @@ import readEntity from './src/services/read';
 import createEntity from './src/services/create';
 import deleteEntity from './src/services/delete';
 import updateEntity from './src/services/update';
-import { Entity, entities } from './src/entities';
+import { Entity } from './src/types';
+import { ENTITIES } from './src/contants';
 
 const app = express();
 const port = 3000;
@@ -22,7 +33,7 @@ app.use(bodyParser.json());
 app.post('/:entity', (req: Req, res: Res) => {
   const { entity } = req.params;
 
-  if (!entities.includes(entity)) {
+  if (!ENTITIES.includes(entity)) {
     res.send({ success: false, message: `entity ${entity} not found` });
     return;
   }
@@ -42,7 +53,7 @@ app.get('/:entity?', (req: Req, res: Res) => {
     return;
   }
 
-  if (!entities.includes(entity)) {
+  if (!ENTITIES.includes(entity)) {
     res.send({ success: false, message: `entity ${entity} not found` });
     return;
   }
@@ -53,7 +64,7 @@ app.get('/:entity?', (req: Req, res: Res) => {
 app.put('/:entity', (req: Req, res: Res) => {
   const { entity } = req.params;
 
-  if (!entities.includes(entity)) {
+  if (!ENTITIES.includes(entity)) {
     res.send({ success: false, message: `entity ${entity} not found` });
     return;
   }
@@ -66,7 +77,7 @@ app.put('/:entity', (req: Req, res: Res) => {
 app.delete('/:entity', (req: Req, res: Res) => {
   const { entity } = req.params;
 
-  if (!entities.includes(entity)) {
+  if (!ENTITIES.includes(entity)) {
     res.send({ success: false, message: `entity ${entity} not found` });
     return;
   }

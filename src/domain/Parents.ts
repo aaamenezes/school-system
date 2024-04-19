@@ -1,8 +1,19 @@
 import { z } from 'zod';
-import { getRandomId } from '../../aux/getRandom';
-import { Parent } from '../../domain';
+import { getRandomId } from '../aux/getRandom';
+import { Address } from '../types';
 
-export function getNewParent(
+export interface Parent {
+  id: string;
+  name?: string;
+  lastName: string;
+  phones: string[];
+  emails: string[];
+  addresses: Address[];
+  document: string;
+  studentsIds: string[];
+}
+
+export function Parent(
   body: Parent,
   validAllProperties: boolean
 ): Partial<Parent> | { error: unknown } {

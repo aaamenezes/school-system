@@ -1,9 +1,23 @@
 import { z } from 'zod';
-import { getRandomId } from '../../aux/getRandom';
-import { Student } from '../../domain';
-import { BLOOD } from '../../contants';
+import { getRandomId } from '../aux/getRandom';
+import { Allergies, Blood, Medicines } from '../types';
+import { BLOOD } from '../contants';
 
-export function getNewStudent(
+export interface Student {
+  id: string;
+  name: string;
+  lastName: string;
+  birthDay: string;
+  parentsIds: string[];
+  allergies?: Allergies;
+  blood: Blood;
+  medicines?: Medicines;
+  registrationDate: string;
+  document?: string;
+  groupId: string;
+}
+
+export function Student(
   body: Student,
   validAllProperties: boolean
 ): Partial<Student> | { error: unknown } {

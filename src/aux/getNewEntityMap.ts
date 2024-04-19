@@ -1,3 +1,6 @@
+/**
+ * esse arquivo vai morrer???
+ */
 import { getNewGroup } from '../services/create/getNewGroup';
 import { getNewParent } from '../services/create/getNewParent';
 import { getNewStudent } from '../services/create/getNewStudent';

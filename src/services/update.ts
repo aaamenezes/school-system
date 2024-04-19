@@ -1,7 +1,8 @@
 import fs from 'fs';
-import { Entity, Group, Parent, Student, Teacher } from '../entities';
+import { Entity } from '../types';
 import db from '../../db.json';
 import { getNewEntityMap } from '../aux/getNewEntityMap';
+import { Group, Parent, Student, Teacher } from '../domain';
 
 type SomeEntity = Parent | Student | Teacher | Group;
 

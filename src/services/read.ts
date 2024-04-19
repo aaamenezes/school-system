@@ -1,5 +1,5 @@
 import db from '../../db.json';
-import { Group, Parent, Student, Teacher } from '../entities';
+import { Group, Parent, Student, Teacher } from '../domain';
 
 export default function readEntity(): {
   students: Student[];

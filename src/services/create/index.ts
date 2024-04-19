@@ -1,17 +1,18 @@
 import fs from 'fs';
 import db from '../../../db.json';
-import type { Entity, Group, Parent, Student, Teacher } from '../../entities';
-import { getNewEntityMap } from '../../aux/getNewEntityMap';
+import type { Entity } from '../../types';
+import { newEntityMap } from '../../domain';
+import { Group, Parent, Student, Teacher } from '../../domain';
 
 export default function createEntity(
   entity: Entity,
   body: Student & Group & Parent & Teacher
 ) {
-  const getNewEntity = getNewEntityMap[entity];
+  const newEntity = newEntityMap[entity];
 
-  if (!getNewEntity) return { success: false, message: 'entity not found' };
+  if (!newEntity) return { success: false, message: 'entity not found' };
 
-  const newEntityResponse = getNewEntity(body, true);
+  const newEntityResponse = newEntity(body, true);
 
   if ('error' in newEntityResponse)
     return { success: false, message: newEntityResponse.error };

@@ -1,8 +1,14 @@
-import { getRandomGroupCode, getRandomId } from '../../aux/getRandom';
 import { z } from 'zod';
-import { Group } from '../../domain';
+import { getRandomGroupCode, getRandomId } from '../aux/getRandom';
 
-export function getNewGroup(
+export interface Group {
+  id: string;
+  code: string;
+  teacherId: string;
+  studentsIds?: string[];
+}
+
+export function Group(
   body: Group,
   validAllProperties: boolean
 ): Partial<Group> | { error: unknown } {
