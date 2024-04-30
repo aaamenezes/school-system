@@ -1,3 +1,52 @@
+import { Address } from '../types';
+
+export interface ParentProps {
+  id: string;
+  name?: string;
+  lastName: string;
+  phones: string[];
+  emails: string[];
+  addresses: Address[];
+  document: string;
+  studentsIds: string[];
+}
+
+export class Parent {
+  id: string;
+  name?: string;
+  lastName: string;
+  phones: string[];
+  emails: string[];
+  addresses: Address[];
+  document: string;
+  studentsIds: string[];
+
+  constructor(props: ParentProps) {
+    this.id = props.id;
+    this.name = props.name;
+    this.lastName = props.lastName;
+    this.phones = props.phones;
+    this.emails = props.emails;
+    this.addresses = props.addresses;
+    this.document = props.document;
+    this.studentsIds = props.studentsIds;
+  }
+
+  get object(): ParentProps {
+    return {
+      id: this.id,
+      name: this.name,
+      lastName: this.lastName,
+      phones: this.phones,
+      emails: this.emails,
+      addresses: this.addresses,
+      document: this.document,
+      studentsIds: this.studentsIds
+    };
+  }
+}
+
+/*
 import { z } from 'zod';
 import { getRandomId } from '../aux/getRandom';
 import { Address } from '../types';
@@ -126,3 +175,4 @@ export function Parent(
     return { error };
   }
 }
+*/

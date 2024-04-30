@@ -1,3 +1,34 @@
+export interface GroupProps {
+  id: string;
+  code: string;
+  teacherId: string;
+  studentsIds?: string[];
+}
+
+export class Group {
+  id: string;
+  code: string;
+  teacherId: string;
+  studentsIds?: string[];
+
+  constructor(props: GroupProps) {
+    this.id = props.id;
+    this.code = props.code;
+    this.teacherId = props.teacherId;
+    this.studentsIds = props.studentsIds;
+  }
+
+  get object(): GroupProps {
+    return {
+      id: this.id,
+      code: this.code,
+      teacherId: this.teacherId,
+      studentsIds: this.studentsIds
+    };
+  }
+}
+
+/*
 import { z } from 'zod';
 import { getRandomGroupCode, getRandomId } from '../aux/getRandom';
 
@@ -12,10 +43,8 @@ export function Group(
   body: Group,
   validAllProperties: boolean
 ): Partial<Group> | { error: unknown } {
-  /**
-   * Melhorar a tipagem do retorno
-   * { error: unknown } ta mto ruim
-   */
+  // Melhorar a tipagem do retorno
+  // { error: unknown } ta mto ruim
   const { teacherId, studentsIds, code } = body;
 
   const newGroupSchema = validAllProperties
@@ -48,3 +77,4 @@ export function Group(
     return { error };
   }
 }
+*/

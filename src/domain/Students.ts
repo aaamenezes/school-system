@@ -1,3 +1,64 @@
+import { Allergies, Blood, Medicines } from '../types';
+
+export interface StudentProps {
+  id: string;
+  name: string;
+  lastName: string;
+  birthDay: string;
+  parentsIds: string[];
+  allergies?: Allergies;
+  blood: Blood;
+  medicines?: Medicines;
+  registrationDate: string;
+  document?: string;
+  groupId: string;
+}
+
+export class Student {
+  id: string;
+  name: string;
+  lastName: string;
+  birthDay: string;
+  parentsIds: string[];
+  allergies?: Allergies;
+  blood: Blood;
+  medicines?: Medicines;
+  registrationDate: string;
+  document?: string;
+  groupId: string;
+
+  constructor(props: StudentProps) {
+    this.id = props.id;
+    this.name = props.name;
+    this.lastName = props.lastName;
+    this.birthDay = props.birthDay;
+    this.parentsIds = props.parentsIds;
+    this.allergies = props.allergies;
+    this.blood = props.blood;
+    this.medicines = props.medicines;
+    this.registrationDate = props.registrationDate;
+    this.document = props.document;
+    this.groupId = props.groupId;
+  }
+
+  get object(): StudentProps {
+    return {
+      id: this.id,
+      name: this.name,
+      lastName: this.lastName,
+      birthDay: this.birthDay,
+      parentsIds: this.parentsIds,
+      allergies: this.allergies,
+      blood: this.blood,
+      medicines: this.medicines,
+      registrationDate: this.registrationDate,
+      document: this.document,
+      groupId: this.groupId
+    };
+  }
+}
+
+/*
 import { z } from 'zod';
 import { getRandomId } from '../aux/getRandom';
 import { Allergies, Blood, Medicines } from '../types';
@@ -185,3 +246,4 @@ export function Student(
     return { error };
   }
 }
+*/

@@ -1,3 +1,54 @@
+export interface TeacherProps {
+  id: string;
+  name: string;
+  lastName: string;
+  document: string;
+  phone: string;
+  email: string;
+  hiringDate: string;
+  specialization?: string;
+  groupsIds: string[];
+}
+
+export class Teacher {
+  id: string;
+  name: string;
+  lastName: string;
+  document: string;
+  phone: string;
+  email: string;
+  hiringDate: string;
+  specialization?: string;
+  groupsIds: string[];
+
+  constructor(props: TeacherProps) {
+    this.id = props.id;
+    this.name = props.name;
+    this.lastName = props.lastName;
+    this.document = props.document;
+    this.phone = props.phone;
+    this.email = props.email;
+    this.hiringDate = props.hiringDate;
+    this.specialization = props.specialization;
+    this.groupsIds = props.groupsIds;
+  }
+
+  get object(): TeacherProps {
+    return {
+      id: this.id,
+      name: this.name,
+      lastName: this.lastName,
+      document: this.document,
+      phone: this.phone,
+      email: this.email,
+      hiringDate: this.hiringDate,
+      specialization: this.specialization,
+      groupsIds: this.groupsIds
+    };
+  }
+}
+
+/*
 import { z } from 'zod';
 import { getRandomId } from '../aux/getRandom';
 
@@ -136,3 +187,4 @@ export function Teacher(
     return { error };
   }
 }
+*/
