@@ -1,10 +1,10 @@
 /**
  * esse arquivo vai morrer???
  */
-import { getNewGroup } from '../services/create/getNewGroup';
-import { getNewParent } from '../services/create/getNewParent';
-import { getNewStudent } from '../services/create/getNewStudent';
-import { getNewTeacher } from '../services/create/getNewTeacher';
+import { getNewGroup } from '../services_OLD/create/getNewGroup';
+import { getNewParent } from '../services_OLD/create/getNewParent';
+import { getNewStudent } from '../services_OLD/create/getNewStudent';
+import { getNewTeacher } from '../services_OLD/create/getNewTeacher';
 
 export const getNewEntityMap = {
   students: getNewStudent,

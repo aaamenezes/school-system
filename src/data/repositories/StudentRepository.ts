@@ -38,6 +38,7 @@ export class StudentRepository {
       return this.#DB.updateStudent(student.id, studentObject);
     }
 
-    return this.#DB.addStudent(studentObject);
+    const newStudent = await this.#DB.addStudent(studentObject);
+    return new Student(newStudent);
   }
 }

@@ -18,10 +18,10 @@
 import express, { Request as Req, Response as Res } from 'express';
 import bodyParser from 'body-parser';
 
-import readEntity from './src/services/read';
-import createEntity from './src/services/create';
-import deleteEntity from './src/services/delete';
-import updateEntity from './src/services/update';
+import readEntity from './src/services_OLD/read';
+import createEntity from './src/services_OLD/create';
+import deleteEntity from './src/services_OLD/delete';
+import updateEntity from './src/services_OLD/update';
 import { Entity } from './src/types';
 import { ENTITIES } from './src/contants';
 
