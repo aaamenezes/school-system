@@ -1,11 +1,17 @@
-import { GroupRepository } from '../data/repositories';
-import { Group, GroupProps } from '../domain';
+import { GroupRepository, StudentRepository } from '../data/repositories';
+import { Group, GroupProps, Student } from '../domain';
+import { StudentService } from './StudentService';
 
 export class GroupService {
   #groupRepository: GroupRepository;
+  #studentRepository: StudentService;
 
-  constructor(groupRepository: GroupRepository) {
+  constructor(
+    groupRepository: GroupRepository,
+    studentService: StudentService
+  ) {
     this.#groupRepository = groupRepository;
+    this.#studentRepository = studentService;
   }
 
   async listAll() {
@@ -16,6 +22,21 @@ export class GroupService {
     const group: Group | null = await this.#groupRepository.findById(id);
     if (!group) throw new Error('Group not found');
     return group;
+  }
+
+  async getStudents(group: Group) {
+    const students: Student[] = [];
+
+    for (const studentId of group.studentsIds || []) {
+      try {
+        const student = await this.#studentRepository.findById(studentId);
+        if (!student) throw new Error();
+        students.push(student);
+      } catch (error) {
+        console.warn(`Student for the group ${group.id} was not found`);
+        continue;
+      }
+    }
   }
 
   async create(groupObject: GroupProps) {
