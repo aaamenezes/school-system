@@ -53,11 +53,11 @@ export class Teacher implements Serializable {
     return new Teacher(parsed);
   }
 
-  toJSON(): string {
+  toJSON() {
     return JSON.stringify(this.toObject());
   }
 
-  toObject(): Record<string, unknown> {
+  toObject() {
     return {
       id: this.id,
       firstName: this.firstName,
