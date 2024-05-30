@@ -70,11 +70,11 @@ export class Student implements Serializable {
     return new Student(parsed);
   }
 
-  toJSON(): string {
+  toJSON() {
     return JSON.stringify(this.toObject());
   }
 
-  toObject(): Record<string, unknown> {
+  toObject() {
     return {
       id: this.id,
       firstName: this.firstName,
