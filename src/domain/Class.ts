@@ -3,7 +3,7 @@ import { Serializable } from './types.js';
 import { randomUUID } from 'crypto';
 
 export const ClassCreationSchema = z.object({
-  id: z.string(),
+  id: z.string().optional(),
   teacher: z.string().uuid().nullable(),
   code: z.string().regex(/^[0-9]{1}[A-H]{1}-[MTN]$/)
 });
